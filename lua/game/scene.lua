@@ -228,6 +228,9 @@ function scene.movestop(obj, v)
     end
 end
 
+function scene.update(obj)
+end
+
 return scene
 
 

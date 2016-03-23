@@ -1,5 +1,6 @@
 local shaco = require "shaco"
 local gateserver = require "gateserver"
+local spack = string.pack
 local sfmt = string.format
 local pairs = pairs
 
