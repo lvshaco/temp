@@ -304,6 +304,7 @@ message card_info {
     optional uint32 card_exp=5;//卡牌经验
     repeated item_info equip=6;//卡牌装备
     repeated card_skill skills=7;//卡牌技能
+	optional uint32 custom_luck = 8;//定制缘份
 }
 
 message card_container {

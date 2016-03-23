@@ -62,6 +62,8 @@ IDUM_CARDPARTNER = 82;
 IDUM_CARDSKILLUP = 83;
 IDUM_UNEQUIPCARD = 84;
 IDUM_REQBREAKTHROUGH = 133;
+IDUM_REQSETBENCH = 85;
+IDUM_REQSETCUSTOMLUCK = 86;
 
 //shop
 IDUM_SHOPBUYITEM = 90;
@@ -457,6 +459,7 @@ message UM_SCENEUPDATE {
     repeated move_object updates=2; // 更新对象
     repeated uint32 dels=3; // 删除对象
 }
+
 //--------------------------------------
 //item
 //--------------------------------------
@@ -634,6 +637,15 @@ message UM_CARDPARTNER {
 message UM_CONFIRMPARTNER {
    //repeated uint32 pos=1;
    repeated partner_info partnerv = 2;//
+}
+//请求设置替补
+message UM_REQSETBENCH {
+	repeated partner_info partnerv = 1;//
+}
+//设置自制定义缘份
+message UM_REQSETCUSTOMLUCK {
+	optional uint32 pos = 1;//卡牌 pos > 1000
+	optional partner_info luckv = 2;//
 }
 
 message UM_CARDSKILLUP {
