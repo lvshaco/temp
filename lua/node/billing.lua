@@ -1,5 +1,6 @@
 local shaco = require "shaco"
 local http = require "http"
+local httpsocket = require "httpsocket"
 local tbl = require "tbl"
 local socket = require "socket"
 local cjson = require "cjson"
@@ -19,7 +20,7 @@ shaco.start(function()
       --  print ("accept", id)
         socket.start(id)
         socket.readon(id)
-        local code, method, uri, head_t, body = http.read(id)
+        local code, method, uri, head_t, body = http.read(httpsocket.reader(id))
        -- print(code, method, uri, head_t, body)
         local t = cjson.decode(body)
         local value = t
