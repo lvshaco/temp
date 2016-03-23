@@ -34,6 +34,7 @@ local function card_gen()
         card_exp=0,
         equip={},
         skills={},
+		custom_luck =0,
     }
 end
 
@@ -74,6 +75,7 @@ function card_container.new(size, cardv,ur)
     local flags = {}
     local partners ={}
 	local own_cards = {}
+	local bench_posv = {}
    	 for k, v in ipairs(cardv.list) do
         if v.cardid == 0 then
             warn("card cardid zero")
@@ -116,6 +118,7 @@ function card_container.new(size, cardv,ur)
 		__own_cards = own_cards,
 		__old_partner = {},
 		sync_partner_flag = false,
+		__benchs = bench_posv,
     }
     setmetatable(self, card_container)
     card_container.__index = card_container

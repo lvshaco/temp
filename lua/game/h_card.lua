@@ -424,4 +424,8 @@ REQ[IDUM_REQBREAKTHROUGH] = function(ur, v)
 	ur:send(IDUM_ACKBREAKTHROUGH, {info = target})
 end
 
+REQ[IDUM_REQSETBENCH] = function(ur,v)
+	
+end
+
 return REQ

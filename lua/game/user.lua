@@ -796,6 +796,23 @@ function user:senderr(err)
     self:send(self.connid, IDUM_ERROR, {err=err})
 end
 
+-- chan
+function user:chan_subscribe(chanid)
+    shaco.sendum(CTX.gate, IDUM_SUBSCRIBE, self.connid, chanid)
+end
+
+function user:chan_unsubscribe(chanid)
+    shaco.sendum(CTX.gate, IDUM_UNSUBSCRIBE, self.connid, chanid)
+end
+
+function user:chan_publish(chanid, msgid, v)
+    local name = MSG_RESNAME[msgid]
+    if name == nil then
+        error("msg res msgid nil", 2)
+    end
+    shaco.sendum(CTX.gate, IDUM_PUBLISH, self.connid, chanid, msgid, pb.encode(name, v))
+end
+
 function user:sync_role_data()
 	local data = sync_role_gen()
 	data.coin=self.info.coin

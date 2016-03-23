@@ -196,8 +196,8 @@ REQ[IDUM_SYNCGUIDANCE] = function(ur, v)
 end
 
 REQ[IDUM_NOTICEORDERID] = function(ur, v)
-	recharge.add_recharge_order(ur,v.str_order)	
-	ur:send(IDUM_AFFIRMORDERID,{str_order = v.str_order})
+	--recharge.add_recharge_order(ur,v.str_order)	
+	--ur:send(IDUM_AFFIRMORDERID,{str_order = v.str_order})
 end
 
 return REQ

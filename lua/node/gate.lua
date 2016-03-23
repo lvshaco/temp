@@ -6,6 +6,7 @@ local sformat = string.format
 local spack = string.pack
 local sunpack = string.unpack
 local ssub = string.sub
+local chan = require "chan"
 require "msg_error"
 require "msg_client"
 require "msg_server"
@@ -15,8 +16,8 @@ local request_handle
 local livetime = 60*1000
 
 local function sendpackage(id, data)
-        gateserver.send(id, spack('<s2', data))
-    end
+    gateserver.send(id, spack('<s2', data))
+end
 
 local function route2client(connid, msgid, msg)
     sendpackage(connid, spack('<I2', msgid)..msg)
@@ -47,6 +48,7 @@ function handle.disconnect(id, err)
     shaco.trace("Conn disconnect "..id, err)
     local c = connection[id]
     if not c then return end
+    chan.exit(id)
     if err and c.logined then
         send2handle(request_handle, id, IDUM_NETDISCONN, "UM_NETDISCONN", {})
     end
@@ -131,6 +133,34 @@ function handle.init()
             else
                 route2client(connid, subid, msg)
             end 
+        elseif msgid == IDUM_SUBSCRIBE then
+            local connid, chanid = p1,p2
+            assert(connid)
+            assert(chanid)
+            local c = connection[connid]
+            if c then
+                chan.subscribe(chanid, connid)
+            end
+        elseif msgid == IDUM_SUBSCRIBE then
+            local connid, chanid = p1,p2
+            assert(connid)
+            assert(chanid)
+            local c = connection[connid]
+            if c then
+                chan.unsubscribe(chanid, connid)
+            end
+        elseif msgid == IDUM_PUBLISH then
+            local connid, chanid, subid, msg = p1,p2,p3,p4
+            assert(connid)
+            assert(chanid)
+            if chanid == nil then
+                for connid, c in pairs(connection) do
+                    route2client(connid, subid, msg)
+                end
+                shaco.trace(sfmt("chan[0] publish msg:%d", msgid))
+            else
+                chan.publish(chanid, subid, msg)
+            end
         end
     end)
 end
