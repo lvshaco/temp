@@ -134,7 +134,7 @@ if db_data then
         elseif task.operate_type == "select" then
            local flag,taskv = select_task(db_data)           
            if flag ~= "" then
-               --tbl.print(taskv,"--state =="..flag.."--taksv ==")
+               print(tbl(taskv,"--state =="..flag.."--taksv =="))
             else
                 print("taskid == "..task.taskid.." is not exist")
             end
@@ -146,12 +146,12 @@ if db_data then
             return db_data
         elseif card.operate_type == "select" then
             local card_list = select_data(db_data) 
-            --tbl.print(card_list,"------carid == "..card.cardid)
+            print(tbl(card_list,"------carid == "..card.cardid))
             return
         end
     elseif t.db_name == "club" then
         if club.operate_type == "select" then
-            --tbl.print(db_data,"-----club info == ")
+            print(tbl(db_data,"-----club info == "))
             return
         elseif club.operate_type == "delete" then
             db_data.data.challengecnt = 0
@@ -160,7 +160,7 @@ if db_data then
     elseif t.db_name == "item" then
         if item.operate_type == "select" then
             local flag,item_list = select_item(db_data)
-            --tbl.print(item_list,"-----itemid== "..item.itemid.." in "..flag.." == ")
+            print(tbl(item_list,"-----itemid== "..item.itemid.." in "..flag.." == "))
             return
         elseif item.operate_type == "delete" then
             delete_item(db_data)
@@ -168,14 +168,14 @@ if db_data then
         end
     elseif t.db_name == "ladder" then
         if ladder.operate_type == "select" then
-            --tbl.print(db_data.ladder_data,"----------ladder info ===")
+            print(tbl(db_data.ladder_data,"----------ladder info ==="))
             return
         end
     elseif t.db_name == "recharge" then
-        --tbl.print(db_data.data,"----------recharge info ===")
+        print(tbl(db_data.data,"----------recharge info ==="))
         return
     elseif t.db_name == "spectype" then
-        --tbl.print(db_data.sp_data,"----------spectype info ===")
+        print(tbl(db_data.sp_data,"----------spectype info ==="))
         return
     end
 end
@@ -189,7 +189,7 @@ local role_data = select(4,...)
 if db_data then
     if t.role == "role_base" then 
         if base.operate_type == "select" then
-            --tbl.print(role_data,"-------- role base ===")
+            print(tbl(role_data,"-------- role base ==="))
             return
         elseif base.operate_type == "change" then
             if t.level > 0 then
@@ -201,7 +201,7 @@ if db_data then
         end
     elseif t.role == "role_info" then
         if info.operate_type == "select" then
-            --tbl.print(role_data,"-----****----- role_info == ")
+            print(tbl(role_data,"-----****----- role_info == "))
             return
         elseif info.operate_type == "change" then
             if info.vip_level > 0 then

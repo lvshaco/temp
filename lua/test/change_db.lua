@@ -21,6 +21,14 @@ local function init_pb()
     for _, v in ipairs(files) do
         pb.register_file(sfmt("%s/%s.pb", path, v))
     end
+--[[    local dazzle = {
+        dazzle_type = 1,
+        fragment={},
+    }
+    tbl.print(dazzle, "-----rr")
+    local c = pb.encode("dazzle_base_info", dazzle)
+    local r = pb.decode("dazzle_base_info", c)
+    tbl.print(r, "------r")]]
 end
 
 
