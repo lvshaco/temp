@@ -1,0 +1,22 @@
+dofile "config_self"
+
+loglevel="."
+maxsocket=1024
+
+modpath="."
+packagepath="lua-shaco.lso;lua-mod.lso"
+luapath="./lua-shaco/?.lua;../lua/base/?.lua;../lua/node/?.lua;../res/lua/?.lua;../lua/msg/?.lua;../lua/game/?.lua;../lua/db/?.lua;../lua/dblog/?.lua"
+luamodpath="./lua-shaco/?.lua;./lua-mod/?.lua;../lua/base/?.lua;../lua/node/?.lua"
+
+start="main"
+
+gateaddress=oip..":"..gateport
+clientmax=1000
+--clientlive=120
+--clientslimit=64*1024
+--clientrlimit=64*1024
+
+console="127.0.0.1:"..cmdport
+
+billinghost=oip..":"..billingport
+platform = 1

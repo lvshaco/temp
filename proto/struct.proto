@@ -1,0 +1,798 @@
+import "enum.proto";
+
+message role_base {
+    optional string name=1; // 名称
+    optional uint32 tpltid=2; // 模板ID
+    optional uint32 roleid=3; // 唯一ID
+    optional uint32 create_time=4; // 创建时间
+    optional uint32 race=5; // 职业 enum eOccupDef
+    optional uint32 level=6; // 等级
+    optional uint32 sex=7; // 性别 enum SEX_T
+	optional uint32 game_key = 8;//激活状态
+}
+
+message pass_ectype {
+    optional uint32 ectypeid=1;//副本id
+    optional uint32 star=2;//副本星级
+	optional uint32 pass=3;//是否通关
+	optional uint32 pass_time=4;//通关时长
+	optional uint32 cur_time=5;//通关时间
+	
+	optional uint32 old_pass_time=7;//历史记录
+}
+
+message skill_gift {
+	optional uint32 skill_idx=1;//
+	optional uint32 level=3;//
+	optional uint32 __type=4;//
+}
+
+message user_skill {
+    optional uint32 skill_id =3;//技能id
+	repeated skill_gift gift=4;//天赋
+}
+
+message user_partners {
+    optional uint32 pos=1;//卡牌的位置
+	optional uint32 pos_idx = 2;
+}
+
+message turn_card_data {
+	optional uint32 itemid = 1;
+	optional uint32 cnt = 2;
+	optional uint32 type = 3;
+}
+
+message vip_info {
+	optional uint32 vip_level = 1;//
+	optional uint32 vip_exp = 2;
+	optional uint32 buy_flag = 3;//是否购买特惠
+}
+
+// 角色详细信息
+message role_info {
+    optional uint32 mapid=1; // 所在地图ID
+    optional float  posx=2; // x坐标
+    optional float  posy=3; // y坐标
+    optional uint32 coin=4; // 金币
+    optional uint32 gold=5; // 钻石
+    optional uint32 package_size=6; // 物品包裹大小
+    optional uint32 exp=7; // 经验值
+    optional uint32 refresh_time=8; // 统一刷新时间
+    optional uint32 oid=9;// 对象ID, 角色起始对象ID由ROLE_STARTOID指定
+    repeated pass_ectype ectype=10; // 副本通关记录
+    repeated user_skill skills=11; // 技能
+    optional role_attribute attribute=12; // 属性
+    optional uint32 map_entertime=13; // 地图进入时间
+    optional uint32 last_city=14; // 上个城市地图ID
+    optional uint32 cards_size=15; // 卡牌包裹大小
+	repeated dazzle_base_info dazzles=17; // 炫纹
+	optional mystery_shop_info mystery=18;// 神秘商店 
+	optional uint32 physical=19;//体力
+	optional uint32 physical_time = 20;//开始恢复体力的时间
+	optional uint32 battle_value = 21;//玩家战斗力
+	optional uint32 buy_physical_cnt = 22;//体力购买次数
+	optional uint32 guidance = 23;//新手引导
+	optional uint32 open_bit = 24;//功能开放标记
+    optional uint32 lastx = 25; // 进入副本之前坐标
+    optional uint32 lasty = 26; // 进入副本之前坐标
+	optional uint32 server_time=27; // 服务器时间
+	optional string global_code = 28;//全局兑换码
+	optional uint32 free_card_cnt = 29;//免费抽卡次数
+	optional uint32 free_card_time = 30;//免费抽卡的时间
+	repeated drop_item_info drops = 31;//副本掉落
+	repeated turn_card_info turn_card = 33;//翻牌奖励
+	optional mystery_shop_info normal=34;// 普通商店
+	optional vip_info vip = 35;//vip信息
+	optional uint32 special_event = 36;//二进制存储 enum:SPECIAL_EVENT_T
+	optional uint32 check_flag = 37;//
+    optional uint32 rmb =38; // 充值人民币	
+    optional uint32 rmb_last_time = 39; //最后一次充值时间
+    optional uint32 login_time = 40; // 登录时间
+    optional uint32 logout_time = 41; // 登出时间
+	optional uint32 exchange_coin_cnt = 42;//摇钱树购买次数
+}
+
+message sync_role { 
+    optional uint32 coin=1; // 金币
+    optional uint32 gold=2; // 钻石
+    optional uint32 exp=3;  // 经验
+    optional uint32 level=4;// 等级
+	optional uint32 physical=5;//体力
+	optional uint32 battle=6;//战斗力
+	optional uint32 add_exp = 7;//增加的经验
+	optional uint32 physical_time = 8;//开始恢复体力的时间
+	optional uint32 server_time=9; // 服务器时间
+	optional uint32 rmb = 10;//充值人民币
+	optional uint32 rmb_last_time = 11;//最后一次充值时间
+}
+
+message role_attribute {
+    optional uint32 atk=1;//物理攻击
+    optional uint32 def=2;//物理防御
+    optional uint32 mag=3;//魔法攻击
+    optional uint32 mag_def=4;//魔法防御
+    optional uint32 hp=5;//血量
+    optional uint32 mp=6;//魔法值
+    optional uint32 atk_crit=7;//物理暴击
+    optional uint32 mag_crit=8;//魔法暴击
+    optional uint32 atk_res=9;//物理抗暴击
+    optional uint32 mag_res=10;//魔法抗暴击
+    optional uint32 block=11;//格挡率
+    optional uint32 dodge=12;//闪避率
+    optional uint32 mp_reply=13;//法力回复率
+    optional uint32 hits=14;//命中率
+    optional uint32 block_value=15;//格挡值
+    optional uint32 hp_reply=16;//血球回复率
+}
+
+
+message equip_attribute {
+    optional uint32 atk=1;//物理攻击
+    optional uint32 def=2;//物理防御
+    optional uint32 mag=3;//魔法攻击
+    optional uint32 mag_def=4;//魔法防御
+    optional uint32 hp=5;//血量
+    optional uint32 mp=6;//魔法值
+    optional uint32 atk_crit=7;//物理暴击
+    optional uint32 mag_crit=8;//魔法暴击
+    optional uint32 atk_res=9;//物理抗暴击
+    optional uint32 mag_res=10;//魔法抗暴击
+    optional uint32 block=11;//格挡率
+    optional uint32 dodge=12;//闪避率
+    optional uint32 mp_reply=13;//法力回复率
+    optional uint32 hits=14;//命中率
+    optional uint32 block_value=15;//格挡值
+    optional uint32 hp_reply=16;//血球回复率
+	optional uint32 pos = 17;//装备的唯一ID
+}
+// now just for role
+message scene_object {
+    optional string name=1;//角色名字
+    optional uint32 tpltid=2;//模板ID
+    optional uint32 oid=3; //唯一ID
+    optional int32 posx=4;// x坐标
+    optional int32 posy=5;//y坐标
+}
+
+message move_object {
+    optional uint32 oid=1;
+    optional int32 posx=2;
+    optional int32 posy=3;
+    optional int32 move=4; // 1为移动中，0为站立
+}
+
+//装备空位
+message hole_position {
+	optional uint32 state = 1;//孔位状态
+	optional uint32 gemid = 2;//宝石id
+	optional uint32 indx = 3;//顺序
+	repeated additional_attribute attributes = 4;//附加属性值
+}
+
+message additional_attribute {
+	optional uint32 attribute_type = 1;//neum : ATTRIBUTE_T
+	optional uint32 attribute_value = 2;//
+	optional uint32 attribute_indx = 3;//
+}
+
+// 装备信息
+message equip_info {
+     optional uint32 itemid=1;//物品id
+     optional uint32 level=2;//强化等级
+     optional uint32 star=3;//星级
+     optional uint32 refinecnt=4;//精炼次数
+     optional uint32 attack=5;//攻击
+     optional uint32 defense=6;//防御
+     optional uint32 magic=7;//魔法攻击
+     optional uint32 magicdef=8;//魔法防御
+     optional uint32 hp=9;//血量
+     optional uint32 atk_crit=10;//物理暴击
+     optional uint32 mag_crit=11;//魔法暴击
+     optional uint32 atk_res=12;//物理抗暴击
+     optional uint32 mag_res=13;//魔法抗暴击
+     optional uint32 block=14;//格挡率
+     optional uint32 dodge=15;//闪避率
+     optional uint32 mp_reply=16;//法力回复率
+     optional uint32 block_value=17;//格挡值
+     optional uint32 hits=18;//命中率
+     optional uint32 hp_reply=19;//血球回复率
+	 optional uint32 mp=20;//魔法量
+	 repeated hole_position hole = 21;//宝石信息
+	 repeated additional_attribute addition = 22;//附加属性值
+}
+
+message additional_atrribute {
+	optional uint32 attack=5;//攻击
+    optional uint32 defense=6;//防御
+    optional uint32 magic=7;//魔法攻击
+    optional uint32 magicdef=8;//魔法防御
+    optional uint32 hp=9;//血量
+    optional uint32 atk_crit=10;//物理暴击
+    optional uint32 mag_crit=11;//魔法暴击
+    optional uint32 atk_res=12;//物理抗暴击
+    optional uint32 mag_res=13;//魔法抗暴击
+    optional uint32 block=14;//格挡率
+    optional uint32 dodge=15;//闪避率
+    optional uint32 mp_reply=16;//法力回复率
+    optional uint32 block_value=17;//格挡值
+    optional uint32 hits=18;//命中率
+    optional uint32 hp_reply=19;//血球回复率
+	optional uint32 mp=20;//魔法量
+}
+
+message item_info {
+    optional uint32 tpltid=1;//模版id
+    optional uint32 pos=2;//位置（唯一id）
+    optional uint32 stack=3;//数量
+    optional equip_info info=4;//物品属性
+	//optional additional_atrribute atr_additional=7;//附加属性值
+	
+}
+
+message item_list {
+    repeated item_info package=1;//背包
+    repeated item_info equip=2;//武器背包
+    repeated item_info mat=3;//材料背包
+}
+
+//表结构类型
+message intW {
+    optional uint32 int1=1;
+    optional uint32 int2=2;
+}
+
+message task_base {
+    optional uint32 taskid=1;//任务id
+    optional uint32 finish=2;//是否完成
+    optional uint32 taskprogress=3;//任务进度1
+	optional uint32 taskprogress2=4;//任务进度2
+	optional uint32 previd = 5;//previd == 0 显示 >0 不显示
+}
+
+message new_task {
+	optional uint32 taskid = 1;//
+}
+
+//任务奖励
+message task_reward {
+    optional uint32 itemid=1;//物品id
+    optional uint32 itemcnt=2;//物品数量
+}
+
+message old_task_info {
+	optional uint32 old_id = 1;//
+}
+
+message task_list {
+    repeated task_base list =1;//任务信息
+	repeated old_task_info old_task = 2;//已经完成的任务
+}
+
+
+// 副本通关记录
+message ectype_fast {
+    optional uint32 ectype_id=1; // 副本id
+    optional string first_role_guild=2; // 首次完成的玩家公会名
+    optional string first_role_name=3;  // 首次完成的玩家名字
+    optional uint32 first_value=4;
+    optional string fast_role_guild=5;  // 最快完成的玩家公会名
+    optional string fast_role_name=6;   // 最快完成的玩家名字
+    optional uint32 fast_value=7;
+	optional uint32 star=8;//通关副本的星级
+	optional uint32 pass_cnt = 9;//通关副本的次数
+    optional uint32 first_level=10; // 首次完成玩家的等级
+    optional uint32 fast_level=11; // 最快完成玩家的等级
+}
+
+//卡牌数据
+
+message card_skill {
+	optional uint32 skill_id=3;//卡牌技能id
+	repeated skill_gift gift=4;//天赋
+}
+
+message own_card_info {
+	optional uint32 cardid=1;//卡牌id
+}
+
+message card_info {
+    optional uint32 cardid=1;//卡牌id
+    optional uint32 level=2;//卡牌等级
+    optional uint32 pos=3;//卡牌位置
+    optional uint32 break_through_num=4;//突破次数
+    optional uint32 card_exp=5;//卡牌经验
+    repeated item_info equip=6;//卡牌装备
+    repeated card_skill skills=7;//卡牌技能
+}
+
+message card_container {
+    repeated card_info list=1;//卡牌信息
+    repeated user_partners partners=2; //小伙伴信息
+	repeated own_card_info own_cards=3;//已经拥有过的卡牌
+}
+
+message partner_attribute {
+	optional uint32 pos =1;//卡牌位置
+	optional role_attribute attribute=2; //卡牌属性 
+}
+
+message partner_info {
+	optional uint32 pos = 1;
+	optional uint32 pos_idx = 2;
+}
+
+//
+message card_list {
+    optional card_container list =1;//repeated card_info list=1 卡牌信息
+}
+
+//卡牌材料
+message card_material {
+    optional uint32 cardid=1;//卡牌id
+    optional uint32 pos=2;//卡牌位置
+}
+
+//卡牌技能升级信息
+message skill_up_info {
+    optional uint32 skill_type=1;//天赋类型
+    optional uint32 skill_level=2;//技能等级
+    optional uint32 card_pos=3;//卡牌位置
+	optional uint32 skill_id=4;//卡牌技能id
+	optional uint32 skill_idx=5;//天赋索引
+}
+
+//掉落物品信息
+message drop_item_info {
+	optional uint32 itemid=1;//掉落物品id
+	optional uint32 cnt=2;//物品数量
+	optional uint32 drop_type=3;//掉落类型
+} 
+
+//扫荡掉落信息
+message sweep_drop_info {
+	repeated drop_item_info drop_list = 1;
+}
+
+//得到掉落物品
+message pickup_item_info {
+	optional uint32 itemid=1;//掉落物品id
+	optional uint32 cnt=2;//物品信息
+	optional uint32 targetid=3;//预留字段(所属玩家id)
+	optional uint32 drop_type=4;//掉落类型
+} 
+
+//翻牌信息
+message turn_card_info {
+	optional uint32 itemid=1;//翻牌物品id
+	optional uint32 cnt=2;//物品数量
+	optional uint32 type=3;//类型
+}
+
+//炫纹碎片
+message dazzle_fragment {
+	optional uint32 fragment_type = 2;//碎片类型
+	optional uint32 fragment_level = 3;//碎片等级
+	optional uint32 fragment_pos = 4;//碎片位置
+	optional uint32 exp = 5;//
+}
+
+//炫纹
+message dazzle_base_info {
+    optional uint32 dazzle_type=1;//类型
+    optional uint32 dazzle_level=2;//等级
+	optional uint32 dazzle_use=3;//是否使用
+    repeated dazzle_fragment fragment=4;//炫纹碎片
+	optional uint32 dazzle_have=5;//是否激活
+}
+
+//神秘商店物品信息
+message mystery_item_info {
+	optional uint32 itemid=1;//物品id
+	optional uint32 itemcnt=2;//物品剩余数量
+	optional uint32 pos=3;//物品的位置
+	optional uint32 falg = 4;//是否已购买标记 0是未购买1是已购买
+	optional uint32 mystery_id=5;//
+	optional uint32 mystery_item_id=6;//
+	optional uint32 money_type = 7;//货币类型
+	optional uint32 money = 8;//货币数量
+	optional uint32 hole_cnt = 9;//已开宝石孔数
+	optional uint32 wash_cnt = 10;//附加属性值条数
+	optional uint32 item_type = 11;//物品类型
+}
+
+//神秘商店
+message mystery_shop_info {
+	optional uint32 start_time=1;//开始时间
+	repeated mystery_item_info info=2;//神秘商店信息
+	optional uint32 refresh_cnt=3;//刷新次数
+}
+
+//战队信息
+message corps_info {
+     optional uint32 corpsid=1;//战队id
+     optional uint32 corps_state=2;//战队的状态
+}
+//卡牌碎片信息
+message card_framgent_info {
+     optional uint32 card_framgent_id=1;//卡牌碎片id
+     optional uint32 count=2;//碎片数量
+}
+
+//俱乐部
+message club_info {
+     repeated corps_info crops=1;//战队信息
+     repeated card_framgent_info card_framgent=2;//卡牌碎片信息
+     optional uint32 club_refresh_cnt=3;//俱乐部刷新次数
+     optional uint32 violet_framgent=4;//紫色碎片
+     optional uint32 orange_framgent=5;//橙色碎片
+     optional uint32 score=6;//星数
+	 optional uint32 last_refresh_time=7;//上次刷新的时间
+	 optional uint32 challengecnt = 8;//挑战次数
+}
+
+message club_data {
+    optional club_info data =1;//俱乐部信息
+}
+
+message ladder_partner_data {
+	optional uint32 cardid=1;//卡牌id
+    optional uint32 level=2;//卡牌等级
+	repeated card_skill skills=3;//卡牌技能
+	optional role_attribute attribute=4; //卡牌属性 
+}
+
+message role_ladder {
+	optional uint32 score=1;//积分
+	optional uint32 joincnt=2;//参加次数
+	optional uint32 wincnt=3;//胜利次数
+	optional uint32 ranking=4;//排名
+	optional uint32 challengecnt=5;//
+	optional uint32 buy_challenge_cnt =6;
+	optional uint32 refreshcnt=7;//
+	optional uint32 honor=8;//荣耀值
+	optional ladder_shop_info ladder_shop=9;//天梯商店信息
+	optional uint32 last_rank=10;//上次排名
+	optional uint32 battle_time=11;//战斗开始的时间
+	optional uint32 robot_id=12;//机器人id
+	optional role_info opponent_info=13;//对手信息
+	repeated item_info opponent_equip = 14;//对手武器背包 
+	optional uint32 opponent_level = 15;//对手等级
+	optional uint32 opponent_tpltid = 16;//对手id
+	optional uint32 opponent_battle_value = 17;//对手战斗力
+	optional string opponent_name_new = 18;//对手名字
+	optional card_container opponent_container_new = 19;//对手卡牌
+	optional uint32 season = 20;//当前赛季
+	optional uint32 level=21;//玩家等级
+	optional string name=22;//玩家名字
+	optional uint32 refresh_challcnt_time= 23;//刷新挑战次数的时间
+	optional uint32 tpltid = 24;//
+	repeated ladder_partner_data partner_data = 25;//对手卡牌属性
+}
+
+message ladder_info {
+	optional uint32 score=1;//积分
+	optional uint32 level=2;//玩家等级
+	optional string name=3;//玩家名字
+	optional uint32 joincnt=4;//参加次数
+	optional uint32 wincnt=5;//胜利次数
+	optional role_info roleinfo=6;//玩家信息
+	optional uint32 ranking=7;//排名
+	optional uint32 roleid=11;//玩家的id
+	optional card_container container =17;//卡牌信息
+	optional uint32 battle_value = 19;//玩家战斗力
+	repeated item_info equip = 20;//武器背包 
+	optional uint32 season = 32;//当前赛季
+	optional uint32 tpltid = 33;// 
+}
+
+message ladder_data {
+	optional uint32 score=1;//积分
+	optional uint32 level=2;//等级
+	optional string name=3;//玩家的名字
+	optional uint32 joincnt=4;//加入次数
+	optional uint32 wincnt=5;//胜利次数
+	optional uint32 ranking=6;//排名
+	optional uint32 challengecnt=7;//挑战次数
+	optional uint32 refreshcnt=8;//刷新次数
+	optional uint32 honor=9;//荣耀值
+	optional uint32 last_rank=10;//上次排名
+	optional uint32 buy_challenge_cnt =11;
+}
+
+message rank_info {
+	optional uint32 score=1;//积分
+	optional string name=2;	//玩家的名字
+	optional uint32 joincnt=3;//参加的次数
+	optional uint32 wincnt=4;//胜利的次数
+	optional uint32 ranking=5;//排名
+}
+
+
+
+message ladder_base {
+	optional role_ladder ladder_data=2;//
+}
+
+message item_base {
+	optional uint32 itemid=1;//物品id
+	optional uint32 itemcnt=2;//物品数量
+	optional uint32 item_type=3;//物品类型
+}
+
+//荣耀商店
+message ladder_shop_info {
+	optional uint32 refresh_time=1;//上次刷新的时间
+	repeated mystery_item_info info=2;//荣耀商店信息
+	optional uint32 refresh_cnt=3;//刷新的次数
+}
+
+message ladder_reward_item {
+	optional uint32 itemid=1;//物品id
+	optional uint32 itemcnt=2;//物品数量
+}
+
+message mail_item_info {
+	optional uint32 item_type = 1;
+	optional uint32 item_id = 2;
+	optional uint32 item_cnt = 3;
+	optional uint32 hole_cnt = 4;
+	optional uint32 washcnt = 7;
+}
+
+//mail
+message mail_data {
+     optional uint32 mail_read_time=2;//邮件的阅读时间
+     optional uint32 mail_id=3;//邮件id
+	 optional uint32 mail_type = 4;//
+	 optional string mail_theme = 5;//邮件主题
+	 optional string mail_content = 6;//邮件内容
+	 optional uint32 mail_gold = 7;//邮件钻石
+	 optional uint32 mail_cion = 8;//邮件金币
+	 repeated mail_item_info item_info = 9;//物品信息
+	 optional uint32 read_save = 10;//阅读保留时间
+	 optional uint32 unread = 11;//未阅读保留时间
+	 optional uint32 send_time = 12;//发送时间
+	 optional string mail_content2 = 13;//内容主题
+	 optional string mail_content3 = 14;//内容尾部
+}
+
+message old_mail_info {
+	optional uint32 mail_id=1;//邮件id
+}
+
+message mail_list {
+	repeated mail_data data=1;//邮件信息
+	repeated old_mail_info old_info=2;//已领取邮件信息
+}
+
+message mail_info {
+    optional mail_list data =1;//邮件信息
+}
+
+//recharge
+message recharge_info {
+	optional string order_num = 1;//订单号
+	optional uint32 order_state =2;//订单状态
+	optional uint32 create_time = 3;//创建时间
+}
+
+message recharge_data {
+	repeated recharge_info data = 1;//
+}
+
+//item_gift
+message item_gift {
+    optional uint32 item_id = 1;
+	optional uint32 count = 2;
+	optional uint32	item_type = 3;
+}
+
+//code
+message code_data {
+    optional uint32 batchid = 1;//批次
+	optional uint32 use_level = 3;//使用等级
+	optional string effective_time = 4;//使用日期区间
+	optional uint32 roleid = 5;//玩家id
+	optional uint32 code_type = 6;//兑换码类型
+	optional string code = 7;//兑换码
+	optional string gift_array=8;//礼包组
+}
+
+//special_ectype
+message partner_state {
+	optional uint32 pos = 1;//卡牌的位置
+	optional uint32 state = 2;
+	//小伙伴的状态1是小伙伴2是替补state
+	optional uint32 blood_percent = 3;//小伙伴血量百分比
+}
+
+message reward_data {
+	optional uint32 itemid = 1;//物品id
+	optional uint32 itemcnt = 2;//物品数量 
+	optional uint32 tower_floor = 3;//对应的塔层数
+}
+
+message topspeed_moment_challenge {
+	optional uint32 challengecnt = 1;//挑战次数
+	optional uint32 difficulty = 2;//副本难度
+	optional uint32 type = 3;//副本类型1是极限时刻,2是极限挑战
+}
+
+message special_ectype_data {
+	optional uint32 revivecnt = 2;//复活次数
+	optional uint32 challengecnt = 3;//挑战次数
+	optional uint32 buyrevivecnt = 4;//复活购买次数
+	repeated partner_state partners = 5;//小伙伴信息
+	repeated reward_data reward = 6;//奖励信息
+	optional uint32 state = 7;//当前副本的状态
+	optional uint32 blood_percent = 10;//玩家血量百分比
+	repeated topspeed_moment_challenge topspeed_info = 11;
+	optional uint32 max_floor = 12;//最大层数
+	optional uint32 front_floor = 13;//上一个层数0表示从第一层开始
+	optional uint32 buy_endless_cnt = 14;//购买的无尽回廊次数
+	optional uint32 buy_moment_cnt = 15;//购买的极限时刻次数
+	optional uint32 buy_challenge_cnt = 16;//购买的极限挑战次数
+}
+
+message spectype_data {
+	optional special_ectype_data sp_data = 2;
+}
+
+message sync_endless_tower {
+	optional uint32 revivecnt = 1;//复活次数
+	optional uint32 challengecnt = 2;//挑战次数
+	optional uint32 buyrevivecnt = 3;//复活购买次数
+	repeated partner_state partners = 4;//小伙伴信息
+	repeated reward_data reward = 5;//奖励信息
+	optional uint32 state = 6;//当前副本的状态
+	optional uint32 blood_percent = 7;//玩家血量百分比
+	optional uint32 max_floor = 8;//层数
+	optional uint32 front_floor = 9;//上一个层数 0表示从第一层开始
+}
+
+message endless_tower_data {
+	repeated partner_state partners = 1;//小伙伴信息
+	optional uint32 blood_percent = 2;//玩家血量百分比
+	optional uint32 front_floor = 3;//上一个层数0表示从第一层开始
+	optional uint32 drop_coin = 4;//掉落金币
+}
+
+message topspeed_moment_reward {
+	optional uint32 cardid = 1;
+	optional uint32 cardcnt = 2;
+}
+
+message endless_tower {
+	optional string name = 1;
+	optional uint32 max_floor = 2;
+	optional uint32 create_time = 3;
+	optional uint32 rank = 4;
+}
+
+message endless_rank_data {
+	optional endless_tower data = 1;
+}
+
+message endless_rank {
+	optional uint32 roleid = 1;
+	optional string name = 2;
+	optional uint32 max_floor = 3;
+	optional uint32 create_time = 4;
+	optional uint32 rank = 5;
+}
+
+message fragment_material {
+	optional uint32 pos = 1;
+	optional uint32 num = 2;
+}
+
+message buy_card {
+	optional uint32 cardid = 1;
+	optional uint32 card_type = 2;//1是卡牌2是卡牌碎片
+	optional uint32 num = 3;
+}
+
+message broad_cast_info {
+	optional uint32 id = 1;//根绝公告类型判断是物品还是卡牌
+	optional uint32 count = 2;//公告的需要显示的数字
+	optional uint32 original_id = 4;//原始的武器id
+}
+
+message activity_ectype_unrank {
+	optional uint32 difficulty = 1;
+	optional uint32 ectype_cnt = 2;//
+	optional uint32 ectype_type = 3;//
+}
+
+message activity_ectype_rank {
+	optional uint32 ectype_cnt = 1;//
+	optional uint32 score = 2;//
+	optional uint32 ectype_type = 3;//
+}
+
+message daily_charge1th_state {
+	optional uint32 recharge_indx = 1;
+	optional uint32 reward_state = 2; //==0 没有充值 ==1可以领奖 ==2 已领取
+}
+
+//活动
+message activity_info {
+	optional uint32 teamid = 1;//签到组id
+	optional uint32 count = 2;//签到次数
+	optional uint32 war_reserve = 3;//战备物资 0: 可领取12-14; 1: 可领取18-21; 2:当天已经不能领取
+	optional uint32 base_floor = 4;//基础层数
+	optional uint32 cur_floor = 5;//当前层数
+	optional uint32 money_difficulty = 6;//极限挑战难度
+	optional uint32 money_cnt = 7;//极限挑战获得金币数
+	optional uint32 exp_difficulty = 8;//极速时刻难度
+	optional uint32 exp_time = 9;//极速时刻时间
+	optional uint32 sign_in_flag = 10;//签到标记
+	//repeated uint32 alchemy = 11;//炼金术
+	optional uint32 exchange_coin_cnt = 12;//购买金币次数
+    repeated uint32 floor_award_flags = 13; // 层数领取标志
+    repeated uint32 levelup_award = 14; // 升级礼包领奖标志
+    repeated uint32 ectype_award= 15; //  推图领奖标志
+    optional uint32 daily_charge1th_award_times = 16; // 每日首冲领奖次数 
+    optional uint32 daily_charge1th_award = 17; // 每日首冲是否已领 
+    optional uint32 gold_award=18; // 黄金礼包
+    optional uint32 diamond_award=19; // 钻石礼包
+    optional uint32 charge1th_award =20; // 首冲礼包 ==0 未充值 == 1 可领取 == 2已领取
+    repeated uint32 sum_charge_award =21; // 累计充值礼包
+    optional uint32 back_award=22; // 回归礼包 0:代表不可领,  >0 表示可领(具体值表示奖励天数)
+	repeated uint32 alchemys = 23;//炼金术
+	repeated activity_ectype_rank activity_rank = 24;//活动副本需要排名
+	repeated activity_ectype_unrank activity_unrank = 25;//活动副本不需要排名
+	repeated daily_charge1th_state daily_charge1th_list = 28; // 每日首冲状态
+}
+
+message activity_data {
+    optional activity_info data =1;//
+}
+
+message activity_ids {
+	optional uint32 activity_id = 1;//
+}
+
+message buy_coin_info {
+	optional uint32 coin = 1;//金币数
+	optional uint32 state = 2;//是否暴击 1是暴击
+}
+
+message activity_money_rank {
+	optional uint32 roleid = 1;
+	optional string name = 2;
+	optional uint32 reward_money = 3;
+	optional uint32 date_time = 4;
+	optional uint32 rank = 5;
+	optional uint32 difficulty = 6;
+}
+
+message activity_exp_rank {
+	optional uint32 roleid = 1;
+	optional string name = 2;
+	optional uint32 over_time = 3;
+	optional uint32 date_time = 4;
+	optional uint32 rank = 5;
+	optional uint32 difficulty = 6;
+}
+
+message battle_value_rank {
+	optional uint32 rank = 1;
+	optional uint32 fight = 2;
+	optional string name = 3;
+	optional uint32 roleid = 4;
+	optional uint32 flag = 5;//是否发过奖
+}
+
+message kill_monster_data {
+	optional uint32 monster_id = 1;//
+	optional uint32 kill_cnt = 2;//
+}
+
+message wood_barrel_rank {
+	optional uint32 score = 1;
+	optional string name = 2;
+	optional uint32 roleid = 3;
+	optional uint32 rank = 4;
+}

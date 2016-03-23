@@ -1,0 +1,18 @@
+dofile "config_self"
+
+loglevel="."
+maxsocket=2
+
+modpath="."
+packagepath="lua-shaco.lso;lua-mod.lso"
+luapath="./lua-shaco/?.lua;../lua/base/?.lua;../lua/node/?.lua;../res/lua/?.lua;../lua/msg/?.lua;../lua/game/?.lua;../lua/db/?.lua;../lua/dblog/?.lua"
+luamodpath="./lua-shaco/?.lua;./lua-mod/?.lua;../lua/base/?.lua;../lua/node/?.lua"
+
+start="gmrobot"
+
+host=oip..":"..gateport
+robotid=1
+--@ message trace
+--trace=1 
+--acc="robot1"
+--name="robot1"

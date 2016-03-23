@@ -1,0 +1,1398 @@
+import "enum.proto";
+import "struct.proto";
+
+enum IDUM_CLI {
+IDUM_TEXT   =0;
+//-----------------------------------------
+//c->s
+//-----------------------------------------
+IDUM_GATEB =10;
+IDUM_HEARTBEAT  =11;
+IDUM_GM = 12;
+
+//login
+IDUM_LOGIN      =20;
+IDUM_CREATEROLE =21;
+IDUM_SELECTROLE =22;
+IDUM_EXITGAME   =23;
+IDUM_GAMEKEY = 191;//
+IDUM_ACTIVATEACC = 192;// 
+IDUM_SDKREQLOGIN = 193;
+
+//scene
+IDUM_SCENEENTER =25;
+IDUM_MOVEREQ =26;
+IDUM_MOVESTOP =27;
+
+// item
+IDUM_ITEMSALE   =30;
+IDUM_EQUIP = 31;
+IDUM_UNEQUIP = 32;
+IDUM_REQUSEITEM = 142;
+
+// task
+IDUM_GETREWARD = 40;
+IDUM_ACCEPTTASK = 41;
+IDUM_TASKCHECK = 42;
+
+// equip
+IDUM_EQUIPINTENSIFY = 50;
+IDUM_EQUIPFORGE = 51;
+IDUM_EQUIPGODCAST = 52;
+IDUM_EQUIPCOMPOSE = 53;
+
+//ectype
+IDUM_PASSECTYPE = 60;
+IDUM_GETTURNCARDREWARD = 61;
+IDUM_GETDROPITEM = 62;
+IDUM_PASSECTYPEFAIL = 134;
+IDUM_NOTICEKILLMONSTERCNT = 141;
+IDUM_REQSWEEPECTYPE = 145;
+IDUM_REQSTARTSPECTYPE = 146;
+IDUM_REQMOMENTREWARD = 147;
+IDUM_REQCHALLENGEREWARD = 148;
+
+//skill
+IDUM_UPSKILL = 70;
+
+//card
+IDUM_EQUIPCARD = 80;
+IDUM_CARDUP = 81;
+IDUM_CARDPARTNER = 82;
+IDUM_CARDSKILLUP = 83;
+IDUM_UNEQUIPCARD = 84;
+IDUM_REQBREAKTHROUGH = 133;
+
+//shop
+IDUM_SHOPBUYITEM = 90;
+IDUM_BUYCARDSIZE = 91;
+IDUM_REQBUYVIPGIFT = 165;
+
+//dazzle
+IDUM_EQUIPDAZZLEFRAGMENT = 100;
+IDUM_COMPOSEDAZZLE =101;
+IDUM_COMPOSEFRAGMENT = 102;
+IDUM_USEDAZZLE = 103;
+
+//mystery
+IDUM_REQBUYMYSTERYITEM = 110;
+IDUM_REQREFRESHMYSTERY = 111;
+
+//CLUB
+IDUM_REQ_REFRESH_CLUB = 112;
+IDUM_REQENTERCLUBSCENE = 113;
+//IDUM_REQEXTRACTREWARD = 114;
+IDUM_REQEXCHANGECARD = 115;
+IDUM_CHALLENGEOVER = 116;
+IDUM_NOTICEENTERTEAMBATTLE = 130;
+
+//LADDER
+IDUM_REQENTERLADDER = 120;
+IDUM_REQLADDERRANK = 121;
+IDUM_REQLADDERSHOP = 122;
+IDUM_REQREFRESHLADDERSHOP = 123;
+IDUM_REQBUYITEMFROMLADDERSHOP = 124;
+IDUM_REQBUYCHALLENGECNT = 125;
+IDUM_REQGETLADDERREWARD = 126;
+IDUM_REQSEARCHOPPONENT = 127;
+IDUM_REQENTERLADDERSCENE = 128;
+IDUM_NOTICEBATTLEOVER = 129;
+
+//mail
+IDUM_REQMAILREWARD = 131;
+IDUM_ONEKEYGETMAILREWARD = 132;
+
+IDUM_REQFUNCTION = 140;
+IDUM_REQBUYPHYSICAL = 143;
+IDUM_SYNCGUIDANCE = 144;
+IDUM_NOTICEORDERID = 149;
+
+//code
+IDUM_USEEXCHANGECODE = 150;
+
+//special_ectype
+IDUM_REQSETCANDIDATE = 151;
+IDUM_REQAUTOMATICCHALLENGE = 152;
+IDUM_REQSTARTCHALLENGE = 153;
+IDUM_REQBUYREVIVE = 154;
+IDUM_SENDENDLESSTOWERDATA = 155;
+IDUM_NOTICEENDLESSTOWEROVER = 156;
+IDUM_REQBUYENDLESSCHALLENGECNT = 157;
+
+//gem
+IDUM_REQGEMCOMPOSE = 158;
+IDUM_REQINLAYGEM = 159;
+IDUM_REQUNINSTALLGEM = 160;
+IDUM_REQUSEOPENGEMPOS = 161;
+IDUM_REQWASHATTRIBUTE = 162;
+IDUM_REQMATERIALWASHATTRIBUTE = 163;
+IDUM_REQREPLYATTRIBUTE = 164;
+IDUM_REQONEKEYCOMPOSEALLGEM = 167;
+IDUM_REQONEKEYUNINSTALLGEM = 168;
+//
+IDUM_REQDAZZLEFRAGMENTCHANGE = 166;//
+
+//activity
+IDUM_REQSIGNIN = 170;//
+IDUM_REQGETWARRESERVE = 171;//
+IDUM_REQGETENDLESSTOWERREWAED = 172;//
+IDUM_REQEXCHANGEDRAWING = 173;//
+IDUM_REQBUGCOIN = 174;//
+IDUM_REQACTIVITYREWARD =175;//
+IDUM_REQACTIVITY =176; // 请求指定活动数据
+IDUM_REQALCHEMY =177;// 请求换图纸
+IDUM_REQTOLLGATEECTYPE = 178;//请求进入关卡活动
+IDUM_REQBALANCEWOODBARREL = 179;//请求结算木桶阵
+
+// 
+IDUM_REQECTYPERECORD = 190; // 请求副本记录
+
+IDUM_GATEE      =999;
+
+//------------------------------------------
+//s->c
+//------------------------------------------
+IDUM_CLIB =1000;
+
+// login
+IDUM_LOGOUT =1001;
+IDUM_ERROR  =1002;
+IDUM_ROLELIST =1003;
+IDUM_RESPONSE = 1004;
+IDUM_ENTERGAME  =1005;
+IDUM_SYNCBATTLEVALUE = 1006;// battle_value
+IDUM_NOTICEWRITEGAMEKEY = 1024;//
+IDUM_ACKGAMEKEY = 1025;
+
+
+//scene
+IDUM_SCENECHANGE =1010;
+IDUM_MOVESYNC =1011;
+IDUM_MOVESTOPSYNC =1012;
+IDUM_OBJECTAPPEAR =1013;
+IDUM_OBJECTDISAPPEAR =1014;
+IDUM_SCENEUPDATE =1015;
+
+// item
+IDUM_ITEMLIST = 1020;
+
+// task
+IDUM_TASKLIST = 1030;
+IDUM_TASKREWARD = 1031;
+IDUM_UPDATETASK = 1032;
+IDUM_SYNCNEWTASK = 1141;
+IDUM_SYNCTASKLIST = 1147;
+
+//equip
+IDUM_SUCCESSRETURN = 1040;
+IDUM_EQUIPCOMPOSERESULT = 1041;
+
+//syncdata
+IDUM_SYNCROLEDATA = 1050;
+IDUM_ITEMDROPLIST = 1051;
+
+//skill
+IDUM_UPDATESKILL = 1060;
+
+//copy
+IDUM_COPYRECORD = 1070;
+IDUM_TURNCARDRESULT = 1071;
+IDUM_GETTURNCARDRESULT = 1072;
+
+//card
+IDUM_CARDLIST = 1080;
+IDUM_CONFIRMPARTNER = 1081;
+IDUM_UPDATECARDEQUIP = 1082;
+IDUM_CARDUPDATESKILL = 1083;
+IDUM_CARDPARTNERLIST = 1084;
+IDUM_UPDATE_CARD_WEAPON = 1085;
+IDUM_CARDUP_RESULT = 1086;
+IDUM_ACKBREAKTHROUGH = 1133;
+
+//shop
+IDUM_BUYCARDSUCCESS = 1090;
+IDUM_BUYCARDSIZERESULT = 1091;
+IDUM_FREEEXTRACTCARD = 1150;
+IDUM_ACKBUYVIPGIFT = 1168;
+
+//dazzle
+IDUM_HANDLEDAZZLERESULT = 1100;
+IDUM_DAZZLERETURN = 1101;
+
+IDUM_UPDATEROLEATTRIBUTE = 1110;
+//mystery
+IDUM_NOTICEMYSTERYSHOP = 1111;
+IDUM_ACKBUYMYSTERYRESULT = 1112;
+IDUM_ACKREFRESHMYSTERYRESULT = 1113;
+
+//club
+IDUM_ACKRESHRESHCLUB = 1114;
+IDUM_ACKENTERCLUBSCENE = 1115;
+IDUM_EXTRACTREWARD = 1116;
+IDUM_ACKEXCHANGECARD = 1117;
+IDUM_CHALLENGERESULT = 1118;
+IDUM_NOTICECLUBINFO = 1119;
+IDUM_NOTICEADDFRAGMENT = 1129;
+
+//ladder
+IDUM_ACKENTERLADDER = 1120;
+IDUM_ACKLADDERRANK = 1121;
+IDUM_ACKLADDERSHOP = 1122;
+IDUM_ACKBUYITEMFROMLADDERSHOP = 1123;
+IDUM_ACKBUYCHALLENGECNT = 1124;
+IDUM_ACKGETLADDERREWARD = 1125;
+IDUM_ACKSEARCHOPPONENTROBOT = 1126;
+IDUM_ACKSEARCHOPPONENTROLE = 1127;
+IDUM_ACKENTERLADDERSCENE = 1128;
+IDUM_SYNCRANKINFO = 1139;
+IDUM_SYNCCHALLENGECNT = 1140;
+
+//mail
+IDUM_ACKMAILREWARD = 1130;
+IDUM_MAILLIST = 1131;
+IDUM_ONEKEYSUCCESS = 1132;
+
+IDUM_GMSETLEVEL = 1134;
+
+IDUM_SYNPARTNERATTRIBUTE = 1135;
+
+IDUM_ACKWEAPONINFO = 1137;
+
+IDUM_ACKFUNCTION = 1138;
+IDUM_ACKSWEEPECTYPE = 1142;
+IDUM_ACKBUYPHYSICAL = 1143;
+IDUM_NOTICERECHARGESTATUS =  1144;
+IDUM_AFFIRMORDERID = 1145;
+
+IDUM_ACKCHECKLOGIN = 1146;
+IDUM_ACKBATTLERESULT = 1148;
+
+IDUM_NOTICEITEMGIFT = 1149;
+//special_ectype 
+IDUM_SYCSPECIALECTYPE = 1152;
+IDUM_ACKSETCANDIDATE = 1153;
+IDUM_ACKAUTOMATICCHALLENGE = 1154;
+IDUM_ACKSTARTCHALLENGE = 1155;
+IDUM_ACKBUYREVIVE = 1156;
+IDUM_ACKSTARTSPECTYPE = 1157;
+IDUM_ACKMOMENTREWARD = 1158;
+IDUM_ACKCHALLENGEREWARD = 1159;
+IDUM_SYNCREWARDDATA = 1160;
+IDUM_ACKRANKINGLIST = 1161;
+IDUM_ACKBUYENDLESSCHALLENGECNT = 1162;
+IDUM_ACKGEMCOMPOSE = 1163;
+IDUM_ACKINLAYGEM = 1164;
+IDUM_ACKCARDINLAYGEM = 1165;
+IDUM_ACKUSEOPENGEMPOS = 1166;
+IDUM_ACKEQUIPOPERATE = 1167;
+
+//vip
+IDUM_SYNCVIPINFO = 1169;
+//broad_cast
+IDUM_NOTICEBROADCAST = 1170;
+IDUM_NEWNOTICEBROADCAST = 1173;
+
+IDUM_SYNCTASKPROGRESS = 1171;
+
+IDUM_NOTICEAKEYEXCHANGEEQUIP = 1172;
+
+//activity
+IDUM_NOTICEOPENACTIVITYLIST = 1180;//
+IDUM_ACKSIGNIN = 1181;//
+IDUM_ACKGETWARRESERVE = 1182;//
+IDUM_ACKBUGCOIN = 1183;
+IDUM_ACKACTIVITYMONEYRANK = 1184;
+IDUM_ACKACTIVITYEXPRANK = 1185;
+IDUM_ACKACTIVITYREWARD =1186;//
+IDUM_NOTICEOPENACTIVITYINFO = 1187;//
+IDUM_ACKBATTLERANK=1188;//
+IDUM_SYNCPOWERREWARD = 1189;//
+IDUM_SYNCCLEARACTIVITY = 1190;
+
+// 
+IDUM_ACKECTYPERECORD=1200;// 反馈副本记录
+IDUM_SYNCWOODBARRELRANK = 1201;//同步木桶阵排名
+IDUM_SYNCENDLESSACTIVITYCNT = 1202;//同步无尽塔期数
+IDUM_NUILL =  1203;//
+
+IDUM_CLIE =1999;
+}
+
+//-----------------------------------------
+//base
+//-----------------------------------------
+message UM_TEXT {
+    optional string str=1;//[0]
+}
+message UM_LOGOUT {
+    optional int32 err=1; // see SERR_OK, if err == SERR_OK, then gate force close connection
+}
+
+message UM_HEARTBEAT {
+}
+
+message UM_ERROR {
+    optional int32 err=1;// SERR
+}
+
+message UM_RESPONSE {
+    optional uint32 msgid=1;
+    optional int32 err=2;
+}
+
+message UM_GM {
+    optional string command=1;
+}
+
+//---------------------------------------
+//login
+//---------------------------------------
+message UM_LOGIN {
+    optional string acc=1;//[MAX_ACC_LEN]
+    optional string passwd=2;//[MAX_PASSWD_LEN]
+	optional string sign = 5;//签名
+	optional uint32 platform = 6;//平台号 1是window 2是平台
+	optional string struuid = 7;//飞流唯一标识符
+	optional string strtimestamp = 8;//utc秒数
+}
+
+message UM_SDKREQLOGIN {
+	optional string sid = 1;
+	optional string acc=2;//[MAX_ACC_LEN]
+	optional uint32 platform = 3;// enum : PLATFORM
+}
+
+message UM_GAMEKEY {
+	optional string game_key = 1;//
+	optional string acc = 2;//帐号
+	optional uint32 platform = 3;// enum : PLATFORM
+}
+
+message UM_ACTIVATEACC {
+
+}
+
+message UM_CREATEROLE {
+    optional uint32 tpltid=1;
+    optional string name=2;//[MAX_ROLE_NAME]
+}
+
+message UM_SELECTROLE {
+    optional uint32 index=1;
+}
+
+message UM_EXITGAME {
+}
+
+message UM_ROLELIST {
+    repeated role_base roles=1;//[max=0]
+}
+
+message UM_NOTICEWRITEGAMEKEY{
+	optional string acc = 1;//
+}
+
+message UM_ACKGAMEKEY {
+}
+
+message UM_ENTERGAME {
+    optional role_info info=1;
+	optional uint32 open_time=2;//开服时间
+	optional uint32 battle_value=3;//战斗力
+	optional uint32 red_point = 4;//小红点
+}
+
+message UM_SYNCROLEDATA {
+    optional sync_role info=1;
+}
+//--------------------------------------
+//scene
+//--------------------------------------
+message UM_SCENEENTER {
+    optional uint32 mapid=1;
+}
+
+message UM_SCENECHANGE {
+    optional uint32 mapid=1;
+    optional int32 posx=2;
+    optional int32 posy=3;
+}
+
+message UM_MOVEREQ {
+    optional int32 posx=1;
+    optional int32 posy=2;
+    optional uint32 speed=3;
+    optional int32 dirx=4;
+    optional int32 diry=5;
+}
+
+message UM_MOVESTOP {
+    optional int32 posx=1;
+    optional int32 posy=2;
+}
+
+message UM_MOVESYNC {
+    optional uint32 oid=1;
+    optional int32 posx=2;
+    optional int32 posy=3;
+    optional uint32 speed=4;
+    optional int32 dirx=5;
+    optional int32 diry=6;
+}
+
+message UM_MOVESTOPSYNC {
+    optional uint32 oid=1;
+    optional int32 posx=2;
+    optional int32 posy=3;
+}
+
+message UM_OBJECTAPPEAR {
+    optional scene_object info=1; 
+}
+message UM_OBJECTDISAPPEAR {
+    optional uint32 oid=1;
+}
+message UM_SCENEUPDATE {
+    repeated scene_object adds=1; // 新增对象
+    repeated move_object updates=2; // 更新对象
+    repeated uint32 dels=3; // 删除对象
+}
+//--------------------------------------
+//item
+//--------------------------------------
+message UM_ITEMLIST {
+    optional int32 bag_type=1; // enum BAG_T
+    repeated item_info info=2; // item_info::stack == 0表示此物品删除，否则更新stack值，iteminfo::pos可以定位物品(实际值代表物品所在格子索引，从0开始)
+}
+
+message UM_ITEMSALE {
+    optional int32 bag_type=1; // enum BAG_T
+    repeated intW posnumv=2; // intW:int1 表示pos, intW:int2表示数量，0代表该物品整个stack
+}
+
+message UM_EQUIP {
+   optional uint32 bag_type=1;//背包的类型
+   optional uint32 pos=2;//被装备的物品在背包里的位置或者被卸下的装备的部位
+}
+message UM_UNEQUIP {
+   optional uint32 bag_type=1;//背包的类型
+   optional uint32 pos=2;//被卸下的装备的部位
+}
+
+message UM_REQUSEITEM {
+	optional uint32 bag_type=1;//背包的类型
+	optional uint32 pos=2;//物品的位置
+	optional uint32 item_cnt = 3;//物品数量
+}
+//--------------------------------------
+//task
+//--------------------------------------
+message UM_GETREWARD { 
+   optional uint32  taskid = 1; 
+}
+
+message UM_ACCEPTTASK { 
+   optional uint32  taskid = 1; 
+}
+
+message UM_TASKREWARD {
+   optional uint32  taskid=1;
+   repeated task_base info = 2;
+}
+
+message UM_TASKLIST {
+    repeated task_base info = 1;
+}
+
+message UM_SYNCTASKLIST {
+    repeated task_base info = 1;
+}
+
+message UM_TASKCHECK { 
+   optional uint32  taskid = 1; 
+}
+
+message UM_UPDATETASK {
+   optional uint32 taskid = 1;
+}
+
+message UM_SYNCTASKPROGRESS {
+	optional task_base task_info = 1;
+}
+
+//--------------------------------------
+//equip
+//--------------------------------------
+message UM_EQUIPINTENSIFY { 
+   optional uint32 pos = 1; //卡牌 pos > 1000
+   optional uint32 bag_type=2;
+}
+
+message UM_SUCCESSRETURN { 
+   optional uint32 success_type = 1;//
+}
+
+message UM_EQUIPFORGE {
+   optional uint32 bag_type=1;
+   optional uint32 drawingid=2;
+   optional uint32 targetid=3;//卡牌 pos > 1000
+}
+
+
+message UM_EQUIPGODCAST {
+   optional uint32 pos = 1;//卡牌 pos > 1000
+   optional uint32 star = 2;
+   optional uint32 bag_type=3;
+}
+
+message UM_EQUIPCOMPOSE {
+   repeated uint32 posv = 1;
+}
+
+message UM_EQUIPCOMPOSERESULT {
+    optional uint32 itemid=1;//id 
+	optional uint32 item_pos = 3;//物品在背包里的位置
+	optional uint32 item_cnt = 4;//物品的数量
+	optional uint32 item_type=5;//奖励类型 
+}
+
+//--------------------------------------
+//ectype
+//--------------------------------------
+message UM_PASSECTYPE { 
+	optional uint32 ectypeid=1; 
+	optional uint32 user_hp=2;
+	optional uint32 pass_time = 3;
+	optional uint32 kill_cnt = 4;
+}
+
+message UM_PASSECTYPEFAIL {
+	optional uint32 ectypeid=1; 
+}
+
+message UM_COPYRECORD {
+	optional ectype_fast record=1;
+	optional uint32 new_record = 2;//是新纪录 ECTYPE_STATE_T
+}
+//--------------------------------------
+//skill
+//--------------------------------------
+message UM_UPSKILL {
+	optional uint32 skillid=1;
+	optional uint32 skill_idx=2;//
+	optional uint32 level=3;//
+	optional uint32 gift_type=4;//
+}
+
+message UM_UPDATESKILL {
+   optional uint32 success=4;
+}
+//--------------------------------------
+//card
+//--------------------------------------
+message UM_CARDLIST {
+   repeated card_info info=1;//卡牌
+}
+
+message UM_UPDATECARDEQUIP {
+   optional card_info info=1;
+}
+
+message UM_EQUIPCARD {
+   optional uint32 bag_type=1;//背包的类型
+   optional uint32 pos=2;//被装备的物品在背包里的位置
+   optional uint32 card_pos=3;
+}
+message UM_CARDPARTNERLIST {
+    repeated user_partners partners=1;
+	optional uint32 alternate = 2;//替补信息 
+}
+message UM_UNEQUIPCARD {
+   optional uint32 pos=1;//被卸下的装备的部位
+   optional uint32 card_pos=2;
+}
+
+message UM_CARDUP {
+   optional uint32 targetid=1;
+   optional uint32 tarpos=2;	//目标卡牌的位置
+   repeated  card_material material=3;//材料卡牌的位置
+}
+
+message UM_CARDUP_RESULT {
+	optional card_info info=1;
+}
+
+message UM_GMSETLEVEL {
+	optional card_info info=1;
+}
+
+message UM_CARDPARTNER {
+   //repeated uint32 pos=1;//卡牌在卡包里的位置
+   repeated partner_info partnerv = 2;//
+}
+
+message UM_CONFIRMPARTNER {
+   //repeated uint32 pos=1;
+   repeated partner_info partnerv = 2;//
+}
+
+message UM_CARDSKILLUP {
+	optional uint32 card_pos =2;
+    optional uint32 skillid=3;
+	optional uint32 skill_idx=4;//
+	optional uint32 level=5;//
+	optional uint32 gift_type=6;//
+}
+
+message UM_CARDUPDATESKILL {
+   optional uint32 success=2;
+}
+
+message UM_BUYCARDSIZE {
+}
+
+message UM_BUYCARDSIZERESULT {
+   optional uint32 card_grid_cnt=1;
+}
+
+message UM_FREEEXTRACTCARD {
+	optional uint32 free_card_time = 1;//
+}
+
+message UM_UPDATE_CARD_WEAPON {
+	optional uint32 handle_type=1;//类型 enum UP_EUIP_TYPE
+	optional card_info info=2;//卡牌 
+}
+
+message UM_REQBREAKTHROUGH {
+	optional uint32 tarpos=3;
+	repeated uint32 material_posv=4;
+}
+
+message UM_ACKBREAKTHROUGH {
+	optional card_info info=1;
+}
+
+message UM_SYNPARTNERATTRIBUTE {
+	repeated partner_attribute attributes=1;
+}
+//--------------------------------------
+//shop
+//--------------------------------------
+message UM_SHOPBUYITEM {
+   optional uint32 buy_type=1;//抽卡的种类
+   optional uint32 random_id=2; 
+}
+
+message UM_BUYCARDSUCCESS {
+   optional uint32 random_id=2;
+   repeated buy_card cards = 3;
+}
+//--------------------------------------
+//copy
+//--------------------------------------
+//副本掉落
+message UM_ITEMDROPLIST {   
+	repeated drop_item_info list=1;
+	optional uint32 coin = 2;
+}
+
+message UM_TURNCARDRESULT {
+	repeated turn_card_info info=1;
+}
+
+message UM_GETTURNCARDREWARD {
+	optional uint32 turn_type=1;//翻牌的类型
+	optional uint32 ectype_id = 2;//副本id
+}
+
+message UM_GETTURNCARDRESULT {
+	optional uint32 itemid=1;//领取的奖励ID
+}
+//获取掉落物品
+message UM_GETDROPITEM {
+	repeated pickup_item_info info=1;//得到掉落物品
+	optional uint32 coin = 2; //掉落金币
+	optional uint32 ectype_id = 3; //副本id
+}
+//--------------------------------------
+//dazzle
+//--------------------------------------
+message UM_DAZZLELIST {
+	repeated dazzle_base_info info=1; //炫纹列表
+}
+
+message UM_EQUIPDAZZLEFRAGMENT {
+	optional uint32 fragmentid=1;//碎片id
+	optional uint32 dazzle_type=2;//炫纹类型
+	optional uint32 dazzle_level=3;//炫纹等级
+}
+
+message UM_HANDLEDAZZLERESULT {
+	optional uint32 success_type=1;//炫纹返回类型(DAZZLE_RETURN)
+	optional dazzle_base_info info=2;//
+}
+
+message UM_COMPOSEDAZZLE {
+	optional uint32 dazzle_type=1;
+	optional uint32 dazzle_level=2;
+}
+
+message UM_COMPOSEFRAGMENT {
+	optional uint32 dazzle_type=1;
+	optional uint32 dazzle_level=2;
+	optional uint32 fragment_type = 4;
+	optional uint32 fragment_level = 5;
+	optional uint32 fragment_pos = 6;
+	repeated fragment_material material = 7;
+}
+
+message UM_USEDAZZLE {
+	optional uint32 dazzle_type=1;
+	optional uint32 dazzle_level=2;
+	optional uint32 dazzle_state = 3;// == 1激活 == 2 暂停  
+}
+
+message UM_DAZZLERETURN {
+	optional uint32 success_type=1;
+	//optional dazzle_base_info info=1;
+}
+
+message UM_SYNCBATTLEVALUE {
+	optional uint32 battle_value=1;
+}
+
+message UM_UPDATEROLEATTRIBUTE {
+	optional role_attribute attribute=1;
+	//repeated equip_attribute equip = 2;//
+}
+
+message UM_NOTICEMYSTERYSHOP {
+	optional mystery_shop_info info=1;
+	optional uint32 start_time=2;
+}
+
+message UM_REQBUYMYSTERYITEM {
+	optional uint32 itemid=1;
+	optional uint32 cnt=2;
+	optional uint32 pos=3;
+	optional uint32 shop_type = 4;////1是神秘商店、7是普通商店
+}
+
+message UM_ACKBUYMYSTERYRESULT {
+	optional uint32 itemid=1;
+	optional uint32 cnt=2;
+	optional uint32 pos=3;
+}
+
+message UM_REQREFRESHMYSTERY {
+	optional uint32 shop_type = 1;//1是神秘商店、7是普通商店
+}
+
+message UM_ACKREFRESHMYSTERYRESULT {
+	repeated mystery_item_info info=1;
+	optional uint32 refresh_cnt=2;
+	optional uint32 shop_type = 3;//1是神秘商店、7是普通商店
+}
+
+
+message UM_NOTICECLUBINFO {
+	optional club_info info=1;
+}
+
+message UM_REQ_REFRESH_CLUB {
+	
+}
+
+message UM_ACKRESHRESHCLUB{
+	optional club_info info=1;
+}
+
+message UM_REQENTERCLUBSCENE {
+	optional uint32 clubid=1;
+}
+
+message UM_ACKENTERCLUBSCENE {
+	optional uint32 clubid=1;
+	optional uint32 state=2;
+	optional uint32 challenge_cnt = 3;//
+}
+
+//message UM_REQEXTRACTREWARD {
+	//optional uint32 clubid=1;
+//}
+
+message UM_EXTRACTREWARD {
+	repeated item_base item_list=1;
+}
+
+message UM_REQEXCHANGECARD {
+	optional uint32 cardid=1;
+	optional uint32 buy_type=2;//是否消耗万能碎片 (enum : EXCHANGE_TYPE)
+	optional uint32 card_count=3;//兑换卡牌的数量
+}
+
+message UM_ACKEXCHANGECARD {
+	optional club_info info=1;
+}
+
+message UM_NOTICEENTERTEAMBATTLE {
+
+}
+
+message UM_CHALLENGEOVER {
+	optional uint32 clubid=1;
+	optional uint32 die_flag = 2;//全部阵亡 == 0 没有全部阵亡 ==1
+	optional uint32 battle_time = 5;//战斗消耗的时间
+}
+
+message UM_CHALLENGERESULT {
+	optional uint32 corpsid=2;//战队id
+    optional uint32 corps_state=3;//战队的状态
+	optional uint32 score=4;//星数
+}
+
+message UM_NOTICEADDFRAGMENT {
+	optional uint32 fragmentid =1;
+	optional uint32 fragment_cnt=2;
+}
+
+//LADDER
+message UM_REQENTERLADDER {
+
+}
+
+message UM_ACKENTERLADDER {
+	optional ladder_data data=1;
+	repeated rank_info rank=2;
+	optional uint32 refresh_time = 3;
+}
+
+message UM_REQLADDERRANK {
+	optional uint32 flag=1;//client rank_info有值flag传0 没值就传1
+}
+
+message UM_ACKLADDERRANK {
+	optional uint32 update_flag=1;//==1更新排名列表; == 0不更新排名列表
+	repeated rank_info rank=2;
+}
+
+message UM_REQLADDERSHOP {
+
+}
+
+message UM_ACKLADDERSHOP {
+	repeated mystery_item_info info=1;
+	optional uint32 refresh_cnt=2;
+	optional uint32 honor = 3;
+	optional uint32 refresh_time = 4;
+}
+
+message UM_REQREFRESHLADDERSHOP {
+
+}
+
+message UM_REQBUYITEMFROMLADDERSHOP {
+	optional uint32 itemid=1;
+	optional uint32 itemcnt=2;
+	optional uint32 pos=3;
+}
+
+message UM_ACKBUYITEMFROMLADDERSHOP {
+	optional uint32 itemid=2;
+	optional uint32 cnt=3;
+	optional uint32 pos=4;
+	optional uint32 honor = 5;
+	optional uint32 money = 6;
+}
+
+message UM_REQBUYCHALLENGECNT {
+
+}
+
+message UM_ACKBUYCHALLENGECNT {
+	optional uint32 challenge_cnt=1;
+	optional uint32 buy_count=2;
+}
+
+message UM_REQGETLADDERREWARD {
+	
+}
+
+message UM_ACKGETLADDERREWARD {
+	optional uint32 last_season=1;
+	optional uint32 last_rank=2;
+}
+
+message UM_REQSEARCHOPPONENT {
+	optional uint32 search_flag = 1;//==1匹配对手 ==2更换对手
+}
+
+message UM_ACKSEARCHOPPONENTROBOT {
+	optional uint32 robot_id=2;
+}
+
+message UM_ACKSEARCHOPPONENTROLE {
+	optional uint32 level=1;
+	optional string name=2;
+	optional role_info info=3;
+	optional card_container container =17;//卡牌信息
+	optional uint32 tpltid=18;
+	optional uint32 battle_value = 19;//玩家战斗力
+	repeated item_info equip = 20;//玩家武器背包 
+	//repeated card_info partners = 21;//小伙伴信息
+	repeated ladder_partner_data partner_data = 23;//
+}
+
+
+message UM_REQENTERLADDERSCENE {
+
+}
+
+message UM_ACKENTERLADDERSCENE {
+	optional uint32 sceneid=1;
+	optional uint32 joincnt=2;
+	optional uint32 challengecnt =3;
+}
+
+message UM_NOTICEBATTLEOVER {
+	optional uint32 battle_result=1;//==1战斗胜利 ==2 战斗失败
+}
+
+message UM_REQMAILREWARD {
+	optional uint32 mail_id=1;
+}
+
+message UM_ACKMAILREWARD {
+	optional uint32 mail_id=1;
+	optional uint32 mail_read_time=2;
+}
+
+message UM_MAILLIST {
+	repeated mail_data data=1;
+}
+
+message UM_ONEKEYGETMAILREWARD {
+	
+}
+
+message UM_ONEKEYSUCCESS {
+	optional uint32 result=1;
+}
+
+message UM_REQFUNCTION {
+	optional uint32 func_type = 1;
+}
+
+message UM_ACKFUNCTION {
+	optional uint32 func_type = 1;
+}
+
+message UM_SYNCRANKINFO {
+	repeated rank_info five_rank=1;
+	repeated rank_info hundred_rank=2;
+}
+
+message UM_SYNCCHALLENGECNT {
+	optional uint32 challenge_cnt=1;
+}
+
+message UM_NOTICEKILLMONSTERCNT {
+	optional uint32 ectype_id = 1;//副本id
+	optional uint32 kill_cnt = 2;//击杀怪物的数量
+}
+
+message UM_SYNCNEWTASK {
+	repeated new_task tasks = 1;
+}
+
+message UM_REQBUYPHYSICAL {
+}
+
+message UM_ACKBUYPHYSICAL {
+	optional uint32 buy_count = 1;//
+}
+
+message UM_SYNCGUIDANCE {
+	optional uint32 guidance_step = 1;//功能点结束的步骤id
+}
+
+message UM_REQSWEEPECTYPE {
+	optional uint32 sweep_type = 1;//扫荡的方式
+	optional uint32 ectype_id = 2;//副本id
+}
+
+message UM_ACKSWEEPECTYPE {
+	repeated sweep_drop_info drop_info =1;
+	optional uint32 coin = 2;
+}
+
+message UM_NOTICERECHARGESTATUS {
+	optional uint32 status = 1;//充值失败返回值
+	optional uint32 ret = 2;//充值结果
+}
+
+message UM_NOTICEORDERID {
+	optional string str_order = 2;//订单号
+}
+
+message UM_AFFIRMORDERID {
+	optional string str_order = 1;//订单号
+}
+
+message UM_ACKCHECKLOGIN {
+	optional uint32 result = 1;// == eVerify_Fail验证失败 == eVerify_Success 成功
+}
+
+message UM_ACKBATTLERESULT {
+	optional uint32 front_seat = 1;//结算前的排名
+	optional uint32 cur_seat = 2;//结算后的排名
+	optional uint32 cur_score = 3;//结算后的积分
+	optional uint32 cur_honor = 4;//结算后的荣耀值
+}
+
+message UM_NOTICEITEMGIFT {
+	repeated item_gift gift_data = 1;
+}
+
+//code
+message UM_USEEXCHANGECODE {
+	optional string code = 1;//兑换码
+}
+
+//special_ectype 
+message UM_SYCSPECIALECTYPE {
+	optional special_ectype_data data = 1;//
+}
+
+message UM_REQSETCANDIDATE {
+	optional uint32 mode_type = 1;//1是设置替补2是替换替补
+	optional uint32 pos = 2;//卡牌位置
+}
+
+message UM_ACKSETCANDIDATE  {
+	optional uint32 pos = 2;//卡牌位置
+}
+
+message UM_REQAUTOMATICCHALLENGE {
+
+}
+
+message UM_ACKAUTOMATICCHALLENGE {
+	repeated reward_data reward = 1;//奖励信息
+}
+
+message UM_REQSTARTCHALLENGE {
+	optional uint32 enter_type = 1;//1、开始挑战 2、继续挑战
+}
+
+message UM_ACKSTARTCHALLENGE {
+	optional uint32 enter_type = 1;//1、开始挑战 2、继续挑战
+	optional sync_endless_tower data = 2;
+}
+
+message UM_REQBUYREVIVE {
+
+}
+
+message UM_ACKBUYREVIVE {
+	optional uint32 result = 2;//1是成功 2是钻石不足 3是购买次数最大
+	optional uint32 buyrevivecnt = 3;//购买次数
+}
+
+message UM_REQSTARTSPECTYPE {
+	optional uint32 ectype_type = 1;//1:极限时刻2:极限挑战
+	optional uint32 ectype_difficulty = 2;
+	//1是极易、2是简单、3是一般、4是困难、5是噩梦、6是地狱
+}
+
+message UM_ACKSTARTSPECTYPE {
+	optional uint32 ectype_type = 1;//1:极限时刻2:极限挑战
+	optional uint32 ectype_difficulty = 2;
+}
+
+message UM_REQMOMENTREWARD {
+	optional uint32 result = 1;//战斗结果1胜利2失败
+	optional uint32 number = 2;//通关米数
+	optional uint32 pass_time = 3;//通关时间
+}
+
+message UM_ACKMOMENTREWARD {
+	repeated topspeed_moment_reward reward = 1;
+}
+
+message UM_REQCHALLENGEREWARD {
+	optional uint32 kill_cnt = 1;//杀怪数量
+	optional uint32 drop_coin = 2;//获得的金币
+}
+
+message UM_ACKCHALLENGEREWARD {
+	optional uint32 coin = 1;//
+}
+
+message UM_SENDENDLESSTOWERDATA {
+	optional endless_tower_data data = 1;
+	optional uint32 endless_state = 2;//1是同步通关层数数据 2是同步主角死亡
+}
+
+message UM_SYNCREWARDDATA {
+	repeated reward_data reward = 1;//奖励信息
+}
+
+message UM_NOTICEENDLESSTOWEROVER {
+	
+}
+
+message UM_ACKRANKINGLIST {
+	repeated endless_rank ranks = 1; //一百名
+	optional endless_rank own_rank = 2;//自己
+	repeated endless_rank five_ranks = 3;//前五名
+}
+
+message UM_REQBUYENDLESSCHALLENGECNT {
+	optional uint32 buy_type = 1; //1是无尽回廊2是极限时刻3是极限挑战
+}
+
+message UM_ACKBUYENDLESSCHALLENGECNT {
+	optional uint32 result = 1;//1成功2失败
+	optional uint32 buy_type = 2;
+}
+
+message UM_REQGEMCOMPOSE {
+	optional uint32 pos = 1;
+	optional uint32 compose_type = 2;//1是单个合成2是合成所有
+}
+
+message UM_ACKGEMCOMPOSE {
+
+}
+
+message UM_REQINLAYGEM {
+	optional uint32 pos = 1;//小伙伴pos + 1000,玩家的不变
+	optional uint32 equip_pos = 2;//
+	optional uint32 item_pos = 3;//一键镶嵌item_pos、hole_pos可以不填
+	optional uint32 hole_pos = 4;//孔位置
+	optional uint32 inlay_type = 5;//镶嵌类型 1是一次镶嵌、2是一键镶嵌
+	optional uint32 bag_type = 6;
+}
+
+message UM_ACKCARDINLAYGEM {
+	optional uint32 handle_type = 1;//HANDLE_GEM
+	optional card_info info=2;//卡牌 
+}
+
+message UM_ACKINLAYGEM {
+	optional uint32 handle_type = 1;//
+}
+
+message UM_REQUNINSTALLGEM {
+	optional uint32 pos = 1;//小伙伴pos + 1000,玩家的不变
+	optional uint32 equip_pos = 2;//装备
+	optional uint32 hole_pos = 3;//一键卸载hole_pos可以不填
+	optional uint32 uninstall_type = 4;//卸载类型 1是一次卸载、2是一键卸载
+	optional uint32 bag_type = 5;
+}
+
+message UM_REQUSEOPENGEMPOS {
+	optional uint32 pos = 1;//小伙伴pos + 1000,玩家的不变
+	optional uint32 equip_pos = 2;//装备的位置
+	optional uint32 item_pos = 3;//材料的位置
+	optional uint32 hole_pos = 4;//
+	optional uint32 bag_type = 5;
+}
+
+message UM_ACKUSEOPENGEMPOS {
+	 optional uint32 result = 1;
+}
+//金钱洗练
+message UM_REQWASHATTRIBUTE {     
+	optional uint32 wash_type = 1;//洗练方式1是钻石2是金币
+	optional uint32 bag_type = 2;//目标装备的bag类型
+	optional uint32 target_pos = 3;//目标装备的位置
+	repeated uint32 lock_indx = 4;//锁定附加属性的indx值
+	optional uint32 pos = 5;//小伙伴pos + 1000,玩家的不变
+	
+}
+//材料洗练
+message UM_REQMATERIALWASHATTRIBUTE {
+	optional uint32 bag_type = 1;//目标装备的bag类型
+	optional uint32 target_pos = 2;//目标装备的位置
+	optional uint32 material_pos = 3;//材料装备的位置
+	optional uint32 target_indx = 4;//目标装备的洗练indx
+	optional uint32 material_indx = 5;//材料装备的洗练indx
+	optional uint32 pos = 6;//小伙伴pos + 1000,玩家的不变
+}
+//洗练返回值
+message UM_ACKEQUIPOPERATE {
+	optional uint32 operate_type = 1;//EUIP_OPERATE_T 这个枚举
+	optional uint32 material_indx = 2;//材料装备选中的洗练indx
+}
+//请求重置洗练结果
+message UM_REQREPLYATTRIBUTE {
+	optional uint32 bag_type = 1;//目标装备的bag类型
+	optional uint32 target_pos = 2;//目标装备的位置
+	optional uint32 pos = 3;//小伙伴pos + 1000,玩家的不变
+}
+
+message UM_REQBUYVIPGIFT {
+	optional uint32 index = 1;//
+}
+
+message UM_ACKBUYVIPGIFT {
+	optional uint32 result = 1;
+}
+
+message UM_SYNCVIPINFO {
+	optional vip_info vip = 1;//
+}
+
+//broad_cast
+message UM_NOTICEBROADCAST {
+	optional uint32 id = 4;//公告id
+	repeated broad_cast_info info = 5;// 
+	optional string name = 6;//玩家的名字
+}
+
+message UM_NEWNOTICEBROADCAST {
+	optional string content = 1;//
+}
+
+message UM_REQDAZZLEFRAGMENTCHANGE {
+	optional uint32 dazzle_type=1;
+	optional uint32 dazzle_level=2;
+	optional uint32 fragment_type = 4;
+	optional uint32 fragment_level = 5;
+	optional uint32 fragment_pos = 6;
+	optional uint32 pos = 7;
+}
+
+message UM_NOTICEAKEYEXCHANGEEQUIP {
+	optional uint32 itemid = 1;
+	optional uint32 pos = 2;//背包里的唯一id
+}
+
+message UM_REQONEKEYCOMPOSEALLGEM {
+	
+}
+message UM_REQONEKEYUNINSTALLGEM {
+	optional uint32 pos = 1;//不做移除的物品id
+}
+
+//activity
+
+message UM_NOTICEOPENACTIVITYLIST {
+	repeated activity_ids activity = 2;//
+	//optional activity_info own_activity = 3;//
+	optional uint32 endless_activity_cnt = 4;//无尽塔的期数
+	optional uint32 activity_money_stage = 5;//极限挑战
+	optional uint32 activity_exp_stage = 6;//极速时刻
+	optional activity_info activity_own = 9;//
+}
+
+message UM_NOTICEOPENACTIVITYINFO {
+	optional activity_info own_activity = 1;//
+}
+
+message UM_SYNCENDLESSACTIVITYCNT {
+	optional uint32 endless_activity_cnt = 1;//无尽塔的期数
+	optional uint32 activity_money_stage = 2;//极限挑战
+	optional uint32 activity_exp_stage = 3;//极速时刻
+}
+
+message UM_REQSIGNIN {
+
+}
+
+message UM_ACKSIGNIN {
+
+}
+
+message UM_REQGETWARRESERVE {
+
+}
+
+message UM_ACKGETWARRESERVE {
+
+}
+
+message UM_REQGETENDLESSTOWERREWAED {
+	optional uint32 reward_floor = 1;//
+}
+
+message UM_REQEXCHANGEDRAWING{
+	optional uint32 alchemy_id = 1;//
+}
+
+message UM_REQBUGCOIN {
+	optional uint32 buy_type = 1;//BUT_COIN_T
+}
+
+message UM_ACKBUGCOIN {
+	repeated buy_coin_info info = 1;
+}
+
+message UM_REQACTIVITYREWARD {
+	optional uint32 activity_id = 1;// == ACTIVITY_T
+	optional uint32 value = 2;//
+}
+
+message UM_ACKACTIVITYREWARD {
+    optional uint32 activity_id = 1;
+    optional uint32 value = 2;
+}
+
+message UM_SYNCPOWERREWARD {
+	optional uint32 reward_type = 1;//奖励类型
+	optional uint32 reward_cnt = 2;//奖励数量
+}
+
+message UM_SYNCCLEARACTIVITY {
+	repeated uint32 activity_ids = 1;
+}
+
+message UM_ACKACTIVITYMONEYRANK {
+	repeated activity_money_rank five_ranks = 1; //前五名
+	optional activity_money_rank own_rank = 2;//自己
+}
+
+message UM_ACKACTIVITYEXPRANK {
+	repeated activity_exp_rank five_ranks = 1; //前五名
+	optional activity_exp_rank own_rank = 2;//自己
+} 
+
+message UM_REQACTIVITY {
+    optional uint32 activity_id=1; // 活动ID
+}
+
+message UM_ACKBATTLERANK {
+	repeated battle_value_rank ranks = 2;//前50名
+	optional battle_value_rank own_rank = 3;//自己的排名
+}
+
+message UM_REQALCHEMY {
+    optional uint32 alchemy_id = 1;
+    repeated intW item_list=2; 
+}
+
+message UM_REQECTYPERECORD {
+    optional uint32 mapid = 1;
+}
+
+message UM_ACKECTYPERECORD {
+	optional ectype_fast record=1;
+}
+
+message UM_REQTOLLGATEECTYPE {
+	optional uint32 toll_gate_type = 2;//enum:TOLL_GATE_ACTIVITY_T
+	optional uint32 difficulty = 3;//有难度就1开始 没有难度的关卡就填0
+}
+
+message UM_REQBALANCEWOODBARREL {
+	repeated kill_monster_data monster_list = 1;//
+	optional uint32 ectype_type = 2;//
+}
+
+message UM_SYNCWOODBARRELRANK {
+	repeated wood_barrel_rank ranks = 1;//前10名
+	optional wood_barrel_rank own_rank = 2;//self rank
+}

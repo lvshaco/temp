@@ -1,0 +1,450 @@
+
+enum COMMON_T {
+    option allow_alias = true;
+    ROLE_STARTOID=100000;
+    BAG_MAT_SIZE=100;
+}
+
+
+enum PLATFORM{
+	T_UC_PLATFORM = 1;
+	T_360_PLATFORM = 2;
+} 
+
+enum SEX_T {
+    SEX_MAN=0;
+    SEX_WOMAN=1;
+}
+
+enum eGeneralOccupDef{
+	eGeneral_OJS = 1; //鬼剑士
+	eGeneraL_OSQS = 2; //神枪手
+	eGeneraL_OGDJ = 3; //格斗家
+	eGeneraL_OFS = 4; //法师
+	eGeneraL_OMS = 5; //牧师
+	eGeneraL_OCK = 6; //刺客
+}
+
+enum eOccupDef {
+    eOccup_ZS = 10;//剑客
+    eOccup_KZ = 11; //狂战
+    eOccup_GZ = 12; //鬼阵
+    eOccup_MJS = 13; //魔剑士
+    eOccup_QPS = 20; //枪炮师
+    eOccup_SQShou = 21;	//神枪手
+    eOccup_DYZJ = 22; //弹药专家
+    eOccup_JXS = 23; //机械师
+    eOccup_QFJ = 30; //拳法家
+    eOccup_LM = 31; //流氓
+    eOccup_QGS = 32; //气功师
+    eOccup_RD = 33; //柔道
+    eOccup_ZDFS = 40; //战斗法师
+    eOccup_YSFS = 41; //元素法师
+    eOccup_ZHS = 42; //召唤师
+    eOccup_MDXZ = 43; //魔道学者
+    eOccup_MS = 50; //牧师
+    eOccup_SQShi = 51; //圣骑士
+    eOccup_QMS = 52; //驱魔师
+    eOccup_SYZ = 53; //圣言者
+    eOccup_CK = 60; //刺客
+    eOccup_SS = 61; //术士
+    eOccup_RZ = 62; //忍者
+    eOccup_DZ = 63; //盗贼
+    eOccup_Max = 64;
+}
+
+enum ITEM_T {
+    ITEM_CANUSE = 1; // 可以使用道具
+    ITEM_BAG    = 2; // 礼包
+    ITEM_SKILL= 3; // 技能书
+    ITEM_EQUIP  = 4; // 装备
+    ITEM_PAPER  = 5; // 图纸
+    ITEM_MATERIAL= 6; // 材料
+	ITEM_OTHER = 7;//其他
+	ITEM_DAZZLE = 8;//炫纹
+	ITEM_GEM = 9;//宝石
+	ITEM_PUNCH = 10;//打孔器
+	ITEM_RESOURCE = 11;//资源
+	ITEM_CARD_FRAGMENT = 12;//卡牌碎片
+}
+
+enum AFFECT_T {
+    AFFECT_HP = 1; // 血
+    AFFECT_MP    = 2; // 蓝
+    AFFECT_PHYSICAL= 3; // 体力
+    AFFECT_COIN  = 4; // 金币
+    AFFECT_GOLD  = 5; // 钻石
+    AFFECT_BIND_GOLD= 6; // 绑定钻石
+	AFFECT_EXP = 7;//经验
+}
+
+enum BAG_T {
+    BAG_PACKAGE=1;
+    BAG_EQUIP=2;
+    BAG_MAT=3;
+    BAG_WAREHOUSE=4;
+    BAG_MAX=5;
+}
+
+enum EQUIP_T {
+    option allow_alias = true;
+    EQUIP_UNKNOW=0;
+    EQUIP_WEAPON=1;  // 武器
+    EQUIP_CLOTHES=2; // 衣服
+    EQUIP_HELMET=3;  // 头盔
+    EQUIP_SHOES=4;   // 鞋子
+    EQUIP_NECKLACE=5;// 裤子
+    EQUIP_BRACELET=6;// 饰品
+    EQUIP_MAX=6;
+}
+
+enum TASK_CLIENT_REQ {
+    TASK_ACCEPT = 1;
+    TASK_GET_REWARD = 2;
+}
+
+enum TASK_T {
+    TASK_SYSTEM = 1;
+}
+
+enum TASK_TYPE {
+    TASK_DIALOG = 0;
+    TASK_PASS_COPY = 1;
+    TASK_KILL_MONSTER = 2;
+    TASK_COMBO_NUMBER = 3;
+    TASK_INTENSIFY_EQUIP = 4;
+    TASK_COST_INGOT = 5;
+    TASK_LEARN_SKILL = 6;
+    TASK_PASSIVE_SKILL = 7;
+    TASK_LEARN_THE_HEART = 8;
+    TASK_HERO_COPY = 9;
+    TASK_LUCKY_CAT = 10;
+    TASK_WISH_OF_MAKING_MONEY = 11;
+    TASK_ARENA = 12;
+}
+
+enum TASK_MOLD {
+	MIAN_TASK = 1;//主线
+	BRANCH_TASK = 2;//支线
+	DAILY_TASK = 3;//日常
+	ACTIVIITY_TASK = 4;//活动
+}
+
+enum QUALITY_T {
+    WHITE = 0;
+    GREEN = 1;
+    BLUE = 2;
+	YELLOW = 3;
+    PURPLE = 4;
+    ORANGE = 5;
+	SILVER = 6;
+}
+
+enum BUY_TYPE {
+	BUY_UNKNOWN = 0;
+    BUY_SINGLE = 1;
+    BUY_TEN = 2;//十连抽
+}
+
+enum COST_TYPE {
+   COST_COIN = 0;//金币
+   COST_GOLD = 1;//钻石
+}
+
+enum SCENE_TYPE {
+	SCENE_CITY = 1;
+	SCENE_COPY = 2;
+	SCENE_ARENA= 3;//竞技场天梯
+	SCENE_BOSS = 4;
+	SCENE_CLUB = 5;//俱乐部
+	SCENE_ENDLESS = 6;//无尽回廊
+	SCENE_MOMENT = 7;//极限时刻
+	SCENE_CHALLENGE = 8;//极限挑战
+}
+
+enum TURN_CARD_TYPE {
+	UN_GOLD_TURN = 1;//免费翻牌
+	GOLD_TURN =2;
+}
+
+enum UP_EUIP_TYPE {
+	INTENSIFY = 1;//强化
+	FORGE = 2;//锻造
+	GODCAST = 3;//精炼
+	COMPOSE = 4;//合成
+}
+
+enum DAZZLE_RETURN {
+	USE_DAZZLE = 1;//激活炫纹
+	EQUIP_FRAGEMENT = 2;//装备炫纹碎片
+	DAZZLE_COMPOSE = 3;//炫纹合成
+	FRAGEMENT_COMPOSE = 4;//炫纹碎片合成
+	FRAGEMENT_EXCHANGE = 5;//炫纹碎片交换
+}
+
+enum ATTRIBUTE_TYPE {
+	MAX_HP =1;//最大生命值
+	MAX_MP =2;//最大魔法值
+	ATTACK =3;//攻击力
+	DEFENSE = 4;//防御值
+	MAGIC_ATK = 5;//魔法攻击力
+	MAGIC_DEFENSE = 6;//魔法防御
+	ATK_CRIT = 7;//暴击
+	MAGIC_CRIT = 8;//魔法暴击
+	TAK_RES = 9;//抗暴击
+	MAGIC_RES = 10;//魔法抗暴击
+}
+
+enum CLUB_STATE {
+	NOT_CHALLENGE = 0;//未挑战
+	PERSONAL_CHALLENGE = 1;//个人赛进行中
+	TEAM_CHALLENGE= 2;//团体赛进行中
+	OVER_CHALLENGE = 3;//已完成
+}
+
+enum SCORE_TYPE {
+	FIRST_TYPE =1;//四分
+	SECOND_TYPE =2;//八分
+	THIRD_TYPE =3;//十二分
+}
+
+enum EXCHANGE_TYPE {
+	NO_USE_OMNIPOTENT_FRAGMENT = 1;//不消耗万能碎片
+	USE_OMNIPOTENT_FRAGMENT = 2;//消耗万能碎片
+}
+
+enum CARD_QUALITY {
+	CARD_WHITE = 1;//白色
+    CARD_GREEN = 2;//绿色
+    CARD_BLUE = 3;//蓝色
+    CARD_VIOLET = 4;//紫色
+    CARD_ORANGE = 5;//橙色
+}
+
+enum LADDER_REWARD_TYPR {
+	REWARD_CARD=0;//奖励卡牌
+	REWARD_FRAGMENT=1;//奖励碎片
+}
+
+enum MAIL_TYPE {
+	ITEM_MAIL = 1;//附件邮件
+	WORD_MAIL = 2;//纯文字邮件
+}
+
+enum MAIL_REWARD_TYPE {	
+	ITEM_TYPE=1;//道具
+	CARD_FRAGMENT=2;//卡牌碎片
+	CARD_TYPE=3;//卡牌
+	HONOR_TYPE=4;//荣誉值
+}
+
+enum DROP_TYPE {
+	MONSTER_DROP = 1;//怪物掉落
+	BOSS_DROP = 2;//boss掉落
+	HIDE_BOSS_DROP =3;//隐藏boss掉落
+}
+
+enum REQ_FUNCTION_TYPE {
+	REQ_BAG=1;//请求主角界面
+	REQ_WEAPON=2;//请求武器界面
+	REQ_SKILL=3;//请求技能界面
+	REQ_FORMATION=4;//请求阵容
+	REQ_CARD=5;//请求卡牌界面
+	REQ_TRAIN=6;//请求训练界面
+	REQ_MAIL=7;//请求邮件界面
+	REQ_ECTYPE=8;//请求副本界面
+	REQ_TASK=9;//請求任務界面
+	REQ_CLUB=10;//請求俱樂部界面
+	REQ_LADDER_SHOP = 11;//请求荣誉商店
+	REQ_LADDER = 12;//请求天梯界面
+	REQ_LADDER_RANK = 13;//请求排行榜
+	REQ_SPECIAL_ECTYPE = 14;//试练之地
+	REQ_ENDLESS_RANK = 15;//无尽回廊排行榜
+	REQ_ACTIVITY_MAIN = 16;//请求活动界面
+	REQ_ACTIVITY_MONEY_RANK = 17;//请求极限挑战排行
+	REQ_ACTIVITY_EXP_RANK = 18;//请求极速时刻排行
+	REQ_ACTIVITY_WOOD_BARREL = 19;//请求木桶阵排行
+	REQ_SHOP = 20;//请求商店界面
+}
+
+enum SWEEP_T {
+	SINGLE_T = 1;//一次
+	REPEATEDLY_T = 2;//多次
+}
+
+enum FUNCTION_T {
+	FUNC_WEAPON=1;//武器强化
+	FUNC_COMPOSE=2;//武器合成
+	FUNC_SKILL=3;//主角技能
+	FUNC_CARD=4;//卡牌系统
+	FUNC_CARD_UP=5;//卡牌升级
+	FUNC_CARD_BREAK=6;//卡牌突破
+	FUNC_CLUB=7;//俱乐部挑战
+	FUNC_FORGE=8;//武器锻造
+	FUNC_LADDER=9;//天梯赛
+	FUNC_DAZZLE=10;//炫纹
+	FUNC_DAILY = 11;//日常任务
+	FUNC_MAIN_TASK = 12;//主线任务
+	FUNC_BUY_CARD = 13;//抽卡
+}
+
+enum RECHARGE_T {
+	eRecharge_Fail = 0;//充值失败
+	eRecharge_Success = 1;//充值成功
+}
+
+enum LOGIN_VERIFY_T {
+	eVerify_Fail = 0;//验证失败
+	eVerify_Success = 1;//验证成功
+}
+
+enum PLATFORM_T {
+	LOCALITY = 1;//本地
+	OUT_NET = 2;//外网
+}
+
+enum HANDLE_GEM {
+	INLAYGEM = 1;//镶嵌宝石
+	UNINSTALLGEM = 2;//卸载宝石
+	OPENGEMPOS = 3;//开孔
+	EQUIP_WASH = 4;//洗练
+}
+
+enum ATTRIBUTE_T {
+	ATK_T = 1;//物理攻击力
+	DEF_T = 2;//物理防御
+	MAGIC_T = 3;//魔法攻击力
+	MAGIC_DEF_T = 4;//魔法防御
+	HP_T = 5;//血量
+	ATK_CRTT_T = 6;//物理暴击
+	MAGIC_CRTT_T = 7;//魔法暴击
+	ATK_RES_T = 8;//物理抗暴击
+	MAGIC_RES_T = 9;//物理抗暴击
+	BLOCK_RATE_T = 10;//格挡率
+	DODGE_RATE_T = 11;//闪避率
+	MP_REPLY_T = 12;//魔法恢复率
+	BLOCK_DATA_T = 13;//格挡值
+	HITS_T = 14;//命中率
+	HP_REPLY_T = 15;//血球恢复率
+}
+
+enum EUIP_OPERATE_T {
+	WASH_MONEY_T = 1;//钱洗练
+	WASH_MATERIAL_T = 2;//材料洗练
+	WASH_REPLY_T = 3;//洗练恢复
+}
+
+enum COST_T {
+	MYSTERY_REF_T = 1;//神秘商店
+	LADDER_REF__T = 2;//天梯商店
+	CLUB_REF_T = 3;//俱乐部挑战刷新
+	LADDER_BUY_T = 4;//天梯赛购买挑战次数
+	PHYSICAL_BUT_T = 5;//体力购买
+	ENDLESS_TOWER_T = 6;//无尽塔复活价格
+	NORMAL_REF_T = 7;//普通商店刷新价格
+}
+
+enum SHOP_ITEM_T {
+	SHOP_PROP_T = 1;//道具
+	SHOP_CARD_T = 2;//卡牌
+	SHOP_CARD_FRAMENT_T =3;//卡牌碎片
+	SHOP_COIN_T = 4;//金币
+	SHOP_GOLD_T = 5;//钻石
+}
+
+enum VIP_FUNCTION_T {
+	VIP_MYSTERY_T = 1;//神秘商店时间延长
+	VIP_NORMAL_T = 2;//普通商店刷新次数
+	VIP_BUY_LADDER_T = 3;//天梯挑战赛次数购买
+	VIP_RESET_OPPONENT = 4;//天梯更换对手功能
+	VIP_CLUB_REFRESH_T = 5;//俱乐部免费刷新
+	VIP_ENDLESS_TOWER_T = 6;//无尽回廊
+	VIP_EXP_TOWER_T = 7;//极速时刻
+	VIP_MONEY_TOWER_T = 8;//极限挑战
+	VIP_BUY_POWER_T = 9;//体力每日购买次数
+	VIP_BUY_CARD_BAG_T = 10;//卡包购买上限
+	VIP_GOLD_WASH_T = 11;//钻石洗练
+	VIP_MOPUP_TICKET_T = 12;//扫荡券奖励
+    VIP_BUYGOLD_T = 13;//摇钱树
+}
+
+//新手引导
+enum SPECIAL_EVENT_T {
+	CLUB_EVENT_T = 1;//俱乐部事件
+	BUY_CARD_T = 2;//第一次抽卡
+	LADDER_EVENT_T = 3;//天梯事件
+}
+
+enum NOTICE_T {
+	NOTICE_SYSTEM_T = 1;//系统公告
+	NOTICE_ACTIVITY_T = 2;//活动公告
+	NOTICE_COIN_CARD_T = 3;//金币抽卡公告
+	NOTICE_GOLD_CARD_T = 4;//钻石抽卡公告
+	NOTICE_FRAGEMENT_T = 5;//碎片合成公告
+	NOTICE_CARD_BREAK_T = 6;//突破公告
+	NOTICE_FORGE_T = 7;//武器锻造公告
+	NOTICE_GOD_CAST_T = 8;//武器精练公告
+	NOTICE_CLUB_T = 9;//俱乐部公告
+	NOTICE_LADDER_T = 10;//天梯公告
+	NOTICE_EQUIP_COMPOSE_T = 11;//装备熔炼公告
+	NOTICE_GEM_COMPOSE_T = 12;//宝石合成公告
+	NOTICE_DAZZLE_T = 13;//炫纹公告
+	NOTICE_MYSTERY_BAG_T = 14;//神秘百宝箱
+}
+
+enum RED_POINT_T {
+	SPCIAL_ECTYPE_POINT = 1;//试练之地
+	CLUB_POINT = 2;//俱乐部
+	LADDER_POINT = 3;//天梯
+}
+
+enum SERVER_RETURN_VALUE {
+	ONE_KEY_COMPOSE_GEM = 1001;//
+}
+
+enum ECTYPE_STATE_T {
+	FIRST_PASS_T = 1;//首个通关
+	FAST_PASS_T = 2;//最快通关
+}
+
+enum BUT_COIN_T {
+	BUY_ONCE = 1;//购买一次
+	BUY_MANY = 2;//购买多次
+}
+
+enum ACTIVITY_T {
+	ACTIVITY_SIGN_IN_T = 1;//每日签到
+	ACTIVITY_WAR_RESERVE = 2;//战备物资
+	ACTIVITY_ENDLESS = 3;//无尽塔
+	ACTIVITY_MONEY = 4;//极限挑战
+	ACTIVITY_EXP = 5;//急速时刻
+	ACTIVITY_ALCHEMY = 6;//炼金术
+    ACTIVITY_LEVELUP = 7;//   开服活动全民大升级
+    ACTIVITY_ECTYPE = 8;//   开服活动推图拿礼包
+    ACTIVITY_DAILY_CHARGE1TH = 9;//   开服活动每日首充大礼包
+    ACTIVITY_FIGHT = 10;//  开服活动强力高手
+    ACTIVITY_GOLD = 11;//  开服活动黄金礼包
+    ACTIVITY_DIAMOND = 12;//  开服活动钻石礼包
+    ACTIVITY_CHARGE1TH = 13;//  首冲奖励
+    ACTIVITY_SUM_CHARGE = 14;//  累积充值
+    ACTIVITY_BACK = 15;//  回归大礼
+    ACTIVITY_EXCHANGE_COIN = 16;//购买金币
+}
+
+enum TOLL_GATE_T {
+	UNNEED_RANK_T = 1;//不需要排名的关卡活动
+	NEED_RANK_T = 2;//需要排名的关卡活动
+}
+
+enum TOLL_GATE_ACTIVITY_T {
+	TOLL_GATE_MECHANINICALBREAKER_T = 1;//车辆破坏
+	TOLL_GATE_DEADTOMBSTON_T = 2;//亡灵墓碑
+	TOLL_GATE_VAMPIREKNIGHT_T = 3;//吸血鬼骑士的诅咒
+	TOLL_GATE_SKILLS_T = 4;//赏金猎人
+	TOLL_GATE_GOBLINSTORM_T = 5;//哥布林风暴
+	TOLL_GATE_PIGCHARGE_T = 6;//猪突猛进
+	TOLL_GATE_TITAN_T = 7;//泰坦来袭
+	TOLL_GATE_RANK_OILDRUM_T = 8;//油桶阵
+	TOLL_GATE_RANK_DEADPASS_T = 9;//死亡穿越
+	TOLL_GATE_RANK_OXHEADONRUSH_T = 10;//牛头向前冲
+}
